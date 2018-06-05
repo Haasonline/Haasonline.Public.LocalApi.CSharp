@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{4E6355B9-E3B1-4E8B-BB77-729EC1E43804}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>Haasonline.Public.LocalApi.CSharp</RootNamespace>
+    <AssemblyName>Haasonline.Public.LocalApi.CSharp</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Apis\AccountDataApi.cs" />
+    <Compile Include="DataObjects\CustomBots\DataObjects\Insurance.cs" />
+    <Compile Include="DataObjects\CustomBots\DataObjects\Safety.cs" />
+    <Compile Include="Enums\EnumIndicator.cs" />
+    <Compile Include="Enums\EnumInsurances.cs" />
+    <Compile Include="Enums\EnumPriceChartType.cs" />
+    <Compile Include="Enums\EnumSafety.cs" />
+    <Compile Include="Enums\EnumLimitOrderPriceType.cs" />
+    <Compile Include="Apis\TradeBotApi.cs" />
+    <Compile Include="DataObjects\CustomBots\DataObjects\OrderBotPreOrder.cs" />
+    <Compile Include="DataObjects\MarketData\TradeContainer.cs" />
+    <Compile Include="DataObjects\AccountData\Position.cs" />
+    <Compile Include="DataObjects\CustomBots\ScriptBot.cs" />
+    <Compile Include="DataObjects\CustomBots\DataObjects\ScriptBotOrder.cs" />
+    <Compile Include="DataObjects\CustomBots\ZoneRecoveryBot.cs" />
+    <Compile Include="DataObjects\CustomBots\DataObjects\OpenRecoveryPositionDefinition.cs" />
+    <Compile Include="DataObjects\CustomBots\DataObjects\ZoneDefinition.cs" />
+    <Compile Include="DataObjects\CustomBots\AccumulationBot.cs" />
+    <Compile Include="Enums\EnumAccumulationBotStopType.cs" />
+    <Compile Include="Apis\ApiBase.cs" />
+    <Compile Include="DataObjects\CustomBots\DataObjects\CryptoIndexBotIndex.cs" />
+    <Compile Include="DataObjects\CustomBots\DataObjects\CryptoIndexBotIndexResult.cs" />
+    <Compile Include="DataObjects\CustomBots\DataObjects\CryptoIndexBotIndexSaveObject.cs" />
+    <Compile Include="DataObjects\CustomBots\CryptoIndexBot.cs" />
+    <Compile Include="DataObjects\CustomBots\EmailBot.cs" />
+    <Compile Include="DataObjects\CustomBots\DataObjects\EmailBotAction.cs" />
+    <Compile Include="DataObjects\CustomBots\DataObjects\EmailBotActionMessage.cs" />
+    <Compile Include="Enums\EnumBotType.cs" />
+    <Compile Include="Enums\EnumCoinsPosition.cs" />
+    <Compile Include="DataObjects\TradeBot\TradeBot.cs" />
+    <Compile Include="DataObjects\TradeBot\TradeBotSignals.cs" />
+    <Compile Include="Enums\EnumBotTradeResult.cs" />
+    <Compile Include="Enums\EnumCurrencyType.cs" />
+    <Compile Include="Enums\EnumFlashSpreadOptions.cs" />
+    <Compile Include="Enums\EnumMadHatterIndicators.cs" />
+    <Compile Include="Enums\EnumMadHatterSafeties.cs" />
+    <Compile Include="Enums\EnumOrderBotTriggerType.cs" />
+    <Compile Include="Enums\EnumSlotType.cs" />
+    <Compile Include="DataObjects\CustomBots\FlashCrashBot.cs" />
+    <Compile Include="DataObjects\CustomBots\DataObjects\FlashCrashBotSaveObject.cs" />
+    <Compile Include="DataObjects\CustomBots\DataObjects\Indicator.cs" />
+    <Compile Include="DataObjects\CustomBots\DataObjects\IndicatorOption.cs" />
+    <Compile Include="DataObjects\CustomBots\InterExchangeArbitrageBot.cs" />
+    <Compile Include="DataObjects\CustomBots\MadHatterBot.cs" />
+    <Compile Include="DataObjects\CustomBots\MarketMarkingBot.cs" />
+    <Compile Include="DataObjects\CustomBots\DataObjects\MarketMarkingBotSlot.cs" />
+    <Compile Include="DataObjects\CustomBots\DataObjects\MarketMarkingBotSlotObject.cs" />
+    <Compile Include="DataObjects\CustomBots\OrderBot.cs" />
+    <Compile Include="DataObjects\CustomBots\ScalperBot.cs" />
+    <Compile Include="DataObjects\CustomBots\DataObjects\SlotObject.cs" />
+    <Compile Include="Apis\TradeApi.cs" />
+    <Compile Include="DataObjects\AccountData\BaseOrder.cs" />
+    <Compile Include="Apis\CustombotApi.cs" />
+    <Compile Include="Enums\EnumCustomBotType.cs" />
+    <Compile Include="DataObjects\CustomBots\BaseCustomBot.cs" />
+    <Compile Include="Enums\EnumFundsMovingPosition.cs" />
+    <Compile Include="Enums\EnumOrderStatus.cs" />
+    <Compile Include="Enums\EnumOrderType.cs" />
+    <Compile Include="DataObjects\AccountData\OrderContainer.cs" />
+    <Compile Include="Enums\EnumFundsPosition.cs" />
+    <Compile Include="Enums\EnumPriceSource.cs" />
+    <Compile Include="Apis\MarketDataApi.cs" />
+    <Compile Include="DataObjects\MarketData\Market.cs" />
+    <Compile Include="DataObjects\MarketData\Orderbook.cs" />
+    <Compile Include="DataObjects\MarketData\OrderbookRecord.cs" />
+    <Compile Include="DataObjects\MarketData\PriceTick.cs" />
+    <Compile Include="DataObjects\MarketData\Trade.cs" />
+    <Compile Include="Enums\EnumTradeType.cs" />
+    <Compile Include="DataObjects\AccountData\Wallet.cs" />
+    <Compile Include="DataObjects\HaasonlineClientResponse.cs" />
+    <Compile Include="HaasonlineClient.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
