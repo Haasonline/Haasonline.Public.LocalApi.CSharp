@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using Haasonline.Public.LocalApi.CSharp.DataObjects;
 using Haasonline.Public.LocalApi.CSharp.DataObjects.AccountData;
 using Haasonline.Public.LocalApi.CSharp.Enums;
@@ -11,64 +12,70 @@ namespace Haasonline.Public.LocalApi.CSharp.Apis
         {
         }
 
-        public HaasonlineClientResponse<Dictionary<string, string>> GetEnabledAccounts()
+        public async Task<HaasonlineClientResponse<Dictionary<string, string>>> GetEnabledAccounts()
         {
-            return Get<Dictionary<string, string>>("/GetEnabledAccounts");
+            return await ExecuteAsync<Dictionary<string, string>>("/GetEnabledAccounts");
         }
 
-        public HaasonlineClientResponse<Dictionary<string, Wallet>> GetAllWallet()
+        public async Task<HaasonlineClientResponse<Dictionary<string, Wallet>>> GetAllWallet()
         {
-            var accounts = GetEnabledAccounts();
-            if (!accounts.IsSuccess)
+            var accounts = await GetEnabledAccounts();
+            if (accounts.ErrorCode != EnumErrorCode.Success)
                 return new HaasonlineClientResponse<Dictionary<string, Wallet>>();
 
             var result = new Dictionary<string, Wallet>();
 
             foreach (var account in accounts.Result)
-                result[account.Key] = GetWallet(account.Key).Result;
+            {
+                var res = await GetWallet(account.Key);
+                result[account.Key] = res.Result;
+            }
 
             return new HaasonlineClientResponse<Dictionary<string, Wallet>>
             {
                 Result = result,
-                IsSuccess = true
+                ErrorCode = EnumErrorCode.Success
             };
         }
-        public HaasonlineClientResponse<Wallet> GetWallet(string accountGuid)
+        public async Task<HaasonlineClientResponse<Wallet>> GetWallet(string accountGuid)
         {
-            return Get<Wallet>("/GetWallet", new Dictionary<string, string>
+            return await ExecuteAsync<Wallet>("/GetWallet", new Dictionary<string, string>
             {
-                {"account", accountGuid }
+                {"accountGuid", accountGuid }
             });
         }
 
-        public HaasonlineClientResponse<Dictionary<string, OrderContainer>> GetAllOpenOrders()
+        public async Task<HaasonlineClientResponse<Dictionary<string, OrderContainer>>> GetAllOpenOrders()
         {
-            var accounts = GetEnabledAccounts();
-            if (!accounts.IsSuccess)
+            var accounts = await GetEnabledAccounts();
+            if (accounts.ErrorCode != EnumErrorCode.Success)
                 return new HaasonlineClientResponse<Dictionary<string, OrderContainer>>();
 
             var result = new Dictionary<string, OrderContainer>();
 
             foreach (var account in accounts.Result)
-                result[account.Key] = GetOpenOrders(account.Key).Result;
+            {
+                var res = await GetOpenOrders(account.Key);
+                result[account.Key] = res.Result;
+            }
 
             return new HaasonlineClientResponse<Dictionary<string, OrderContainer>>
             {
                 Result = result,
-                IsSuccess = true
+                ErrorCode = EnumErrorCode.Success
             };
         }
-        public HaasonlineClientResponse<OrderContainer> GetOpenOrders(string accountGuid)
+        public async Task<HaasonlineClientResponse<OrderContainer>> GetOpenOrders(string accountGuid)
         {
-            return Get<OrderContainer>("/GetOpenOrders", new Dictionary<string, string>
+            return await ExecuteAsync<OrderContainer>("/GetOpenOrders", new Dictionary<string, string>
             {
-                {"account", accountGuid }
+                {"accountGuid", accountGuid }
             });
         }
 
-        public HaasonlineClientResponse<EnumOrderStatus> GetTemplateStatus(string templateGuid)
+        public async Task<HaasonlineClientResponse<EnumOrderStatus>> GetTemplateStatus(string templateGuid)
         {
-            return Get<EnumOrderStatus>("/GetTemplateStatus", new Dictionary<string, string>
+            return await ExecuteAsync<EnumOrderStatus>("/GetTemplateStatus", new Dictionary<string, string>
             {
                 {"templateGuid", templateGuid }
             });

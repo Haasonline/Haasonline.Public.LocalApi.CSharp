@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using Haasonline.Public.LocalApi.CSharp.DataObjects;
 using Haasonline.Public.LocalApi.CSharp.DataObjects.MarketData;
 using Haasonline.Public.LocalApi.CSharp.Enums;
@@ -12,103 +13,103 @@ namespace Haasonline.Public.LocalApi.CSharp.Apis
         }
 
 
-        public HaasonlineClientResponse<List<string>> GetAllPriceSources()
+        public async Task<HaasonlineClientResponse<List<string>>> GetAllPriceSources()
         {
-            return Get<List<string>>("/GetAllPriceSources");
+            return await ExecuteAsync<List<string>>("/GetAllPriceSources", authorize: false);
         }
-        public HaasonlineClientResponse<List<string>> GetEnabledPriceSources()
+        public async Task<HaasonlineClientResponse<List<string>>> GetEnabledPriceSources()
         {
-            return Get<List<string>>("/GetEnabledPriceSources");
-        }
-
-        public HaasonlineClientResponse<List<Market>> GetAllPriceMarkets()
-        {
-            return Get<List<Market>>("/GetAllPriceMarkets");
+            return await ExecuteAsync<List<string>>("/GetEnabledPriceSources", authorize: false);
         }
 
-        public HaasonlineClientResponse<List<Market>> GetPriceMarkets(EnumPriceSource priceSource)
+        public async Task<HaasonlineClientResponse<List<Market>>> GetAllPriceMarkets()
         {
-            return Get<List<Market>>("/GetPriceMarkets", new Dictionary<string, string>
+            return await ExecuteAsync<List<Market>>("/GetAllPriceMarkets", authorize: false);
+        }
+
+        public async Task<HaasonlineClientResponse<List<Market>>> GetPriceMarkets(EnumPriceSource priceSource)
+        {
+            return await ExecuteAsync<List<Market>>("/GetPriceMarkets", new Dictionary<string, string>
             {
                 { "priceSourceName", priceSource.ToString() }
-            });
+            }, authorize: false);
         }
 
-        public HaasonlineClientResponse<PriceTick> GetPriceTicker(EnumPriceSource priceSource, string primairyCoin, string secondairyCoin, string contractName)
+        public async Task<HaasonlineClientResponse<PriceTick>> GetPriceTicker(EnumPriceSource priceSource, string primairyCoin, string secondairyCoin, string contractName)
         {
-            return Get<PriceTick>("/GetPriceTicker", new Dictionary<string, string>
+            return await ExecuteAsync<PriceTick>("/GetPriceTicker", new Dictionary<string, string>
             {
                 {"priceSourceName", priceSource.ToString() },
-                {"primairyCoin", primairyCoin },
-                {"secondairyCoin", secondairyCoin },
+                {"primaryCoin", primairyCoin },
+                {"secondaryCoin", secondairyCoin },
                 {"contractName", contractName },
-            });
+            }, authorize: false);
         }
-        public HaasonlineClientResponse<PriceTick> GetPriceTicker(Market market)
+        public async Task<HaasonlineClientResponse<PriceTick>> GetPriceTicker(Market market)
         {
-            return GetPriceTicker(market.PriceSource, market.PrimaryCurrency, market.SecondaryCurrency, market.ContractName);
+            return await GetPriceTicker(market.PriceSource, market.PrimaryCurrency, market.SecondaryCurrency, market.ContractName);
         }
 
-        public HaasonlineClientResponse<PriceTick> GetMinutePriceTicker(EnumPriceSource priceSource, string primairyCoin, string secondairyCoin, string contractName)
+        public async Task<HaasonlineClientResponse<PriceTick>> GetMinutePriceTicker(EnumPriceSource priceSource, string primairyCoin, string secondairyCoin, string contractName)
         {
-            return Get<PriceTick>("/GetMinutePriceTicker", new Dictionary<string, string>
+            return await ExecuteAsync<PriceTick>("/GetMinutePriceTicker", new Dictionary<string, string>
             {
                 {"priceSourceName", priceSource.ToString() },
-                {"primairyCoin", primairyCoin },
-                {"secondairyCoin", secondairyCoin },
+                {"primaryCoin", primairyCoin },
+                {"secondaryCoin", secondairyCoin },
                 {"contractName", contractName },
-            });
+            }, authorize: false);
         }
-        public HaasonlineClientResponse<PriceTick> GetMinutePriceTicker(Market market)
+        public async Task<HaasonlineClientResponse<PriceTick>> GetMinutePriceTicker(Market market)
         {
-            return GetMinutePriceTicker(market.PriceSource, market.PrimaryCurrency, market.SecondaryCurrency, market.ContractName);
+            return await GetMinutePriceTicker(market.PriceSource, market.PrimaryCurrency, market.SecondaryCurrency, market.ContractName);
         }
 
-        public HaasonlineClientResponse<TradeContainer> GetLastTrades(EnumPriceSource priceSource, string primairyCoin, string secondairyCoin, string contractName)
+        public async Task<HaasonlineClientResponse<TradeContainer>> GetLastTrades(EnumPriceSource priceSource, string primairyCoin, string secondairyCoin, string contractName)
         {
-            return Get<TradeContainer>("/GetLastTrades", new Dictionary<string, string>
+            return await ExecuteAsync<TradeContainer>("/GetLastTrades", new Dictionary<string, string>
             {
                 {"priceSourceName", priceSource.ToString() },
-                {"primairyCoin", primairyCoin },
-                {"secondairyCoin", secondairyCoin },
+                {"primaryCoin", primairyCoin },
+                {"secondaryCoin", secondairyCoin },
                 {"contractName", contractName },
-            });
+            }, authorize: false);
         }
-        public HaasonlineClientResponse<TradeContainer> GetLastTrades(Market market)
+        public async Task<HaasonlineClientResponse<TradeContainer>> GetLastTrades(Market market)
         {
-            return GetLastTrades(market.PriceSource, market.PrimaryCurrency, market.SecondaryCurrency, market.ContractName);
+            return await GetLastTrades(market.PriceSource, market.PrimaryCurrency, market.SecondaryCurrency, market.ContractName);
         }
 
-        public HaasonlineClientResponse<Orderbook> GetOrderbook(EnumPriceSource priceSource, string primairyCoin, string secondairyCoin, string contractName)
+        public async Task<HaasonlineClientResponse<Orderbook>> GetOrderbook(EnumPriceSource priceSource, string primairyCoin, string secondairyCoin, string contractName)
         {
-            return Get<Orderbook>("/GetOrderbook", new Dictionary<string, string>
+            return await ExecuteAsync<Orderbook>("/GetOrderbook", new Dictionary<string, string>
             {
                 {"priceSourceName", priceSource.ToString() },
-                {"primairyCoin", primairyCoin },
-                {"secondairyCoin", secondairyCoin },
+                {"primaryCoin", primairyCoin },
+                {"secondaryCoin", secondairyCoin },
                 {"contractName", contractName }
-            });
+            }, authorize: false);
         }
-        public HaasonlineClientResponse<Orderbook> GetOrderbook(Market market)
+        public async Task<HaasonlineClientResponse<Orderbook>> GetOrderbook(Market market)
         {
-            return GetOrderbook(market.PriceSource, market.PrimaryCurrency, market.SecondaryCurrency, market.ContractName);
+            return await GetOrderbook(market.PriceSource, market.PrimaryCurrency, market.SecondaryCurrency, market.ContractName);
         }
 
-        public HaasonlineClientResponse<List<PriceTick>> GetHistory(EnumPriceSource priceSource, string primairyCoin, string secondairyCoin, string contractName, int interval, int depth)
+        public async Task<HaasonlineClientResponse<List<PriceTick>>> GetHistory(EnumPriceSource priceSource, string primairyCoin, string secondairyCoin, string contractName, int interval, int depth)
         {
-            return Get<List<PriceTick>>("/GetHistory", new Dictionary<string, string>
+            return await ExecuteAsync<List<PriceTick>>("/GetHistory", new Dictionary<string, string>
             {
                 {"priceSourceName", priceSource.ToString() },
-                {"primairyCoin", primairyCoin },
-                {"secondairyCoin", secondairyCoin },
+                {"primaryCoin", primairyCoin },
+                {"secondaryCoin", secondairyCoin },
                 {"contractName", contractName },
                 {"interval", interval.ToString() },
                 {"depth", depth.ToString() },
-            });
+            }, authorize: false);
         }
-        public HaasonlineClientResponse<List<PriceTick>> GetHistory(Market market, int interval, int depth)
+        public async Task<HaasonlineClientResponse<List<PriceTick>>> GetHistory(Market market, int interval, int depth)
         {
-            return GetHistory(market.PriceSource, market.PrimaryCurrency, market.SecondaryCurrency, market.ContractName, interval, depth);
+            return await GetHistory(market.PriceSource, market.PrimaryCurrency, market.SecondaryCurrency, market.ContractName, interval, depth);
         }
 
     }

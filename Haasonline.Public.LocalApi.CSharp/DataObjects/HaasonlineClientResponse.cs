@@ -2,8 +2,9 @@
 {
     public class HaasonlineClientResponse<T>
     {
-        public bool IsSuccess { get; set; }
+        public EnumErrorCode ErrorCode { get; set; }
         public string ErrorMessage { get; set; }
+
         public T Result { get; set; }
     }
 }

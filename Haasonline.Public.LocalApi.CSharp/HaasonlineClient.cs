@@ -1,4 +1,5 @@
-﻿using Haasonline.Public.LocalApi.CSharp.Apis;
+﻿using System.Threading.Tasks;
+using Haasonline.Public.LocalApi.CSharp.Apis;
 
 namespace Haasonline.Public.LocalApi.CSharp
 {
@@ -20,9 +21,10 @@ namespace Haasonline.Public.LocalApi.CSharp
             CustomBotApi = new CustomBotApi($"http://{ip}:{port}", privateKey);
         }
 
-        public bool TestCreditials()
+        public async Task<bool> TestCreditials()
         {
-            return MarketDataApi.GetEnabledPriceSources().IsSuccess;
+            var res = await MarketDataApi.GetEnabledPriceSources();
+            return res.ErrorCode == EnumErrorCode.Success;
         }
 
     }
