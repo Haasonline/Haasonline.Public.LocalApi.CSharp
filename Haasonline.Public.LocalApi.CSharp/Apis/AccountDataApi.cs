@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
+using Haasonline.LocalApi.CSharp.Enums;
 using Haasonline.Public.LocalApi.CSharp.DataObjects;
 using Haasonline.Public.LocalApi.CSharp.DataObjects.AccountData;
 using Haasonline.Public.LocalApi.CSharp.Enums;

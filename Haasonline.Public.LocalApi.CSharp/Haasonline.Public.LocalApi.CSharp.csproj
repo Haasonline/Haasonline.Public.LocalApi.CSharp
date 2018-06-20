@@ -47,6 +47,7 @@
     <Compile Include="Apis\AccountDataApi.cs" />
     <Compile Include="DataObjects\CustomBots\DataObjects\Insurance.cs" />
     <Compile Include="DataObjects\CustomBots\DataObjects\Safety.cs" />
+    <Compile Include="Enums\EnumErrorCode.cs" />
     <Compile Include="Enums\EnumIndicator.cs" />
     <Compile Include="Enums\EnumInsurances.cs" />
     <Compile Include="Enums\EnumPriceChartType.cs" />

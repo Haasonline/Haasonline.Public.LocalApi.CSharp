@@ -1,4 +1,6 @@
-﻿namespace Haasonline.Public.LocalApi.CSharp.DataObjects
+﻿using Haasonline.LocalApi.CSharp.Enums;
+
+namespace Haasonline.Public.LocalApi.CSharp.DataObjects
 {
     public class HaasonlineClientResponse<T>
     {
