@@ -49,15 +49,15 @@ namespace Haasonline.Public.LocalApi.CSharp.Apis
             });
         }
 
-        public async Task<HaasonlineClientResponse<T>> NewBot<T>(EnumCustomBotType botType, string name, string accountGuid, string primairyCoin, string secondairyCoin, string contractName)
+        public async Task<HaasonlineClientResponse<T>> NewBot<T>(EnumCustomBotType botType, string name, string accountGuid, string primaryCoin, string secondaryCoin, string contractName)
         {
             return await ExecuteAsync<T>("/NewCustomBot", new Dictionary<string, string>
             {
                 {"botType", botType.ToString()},
                 {"botName", name},
                 {"accountGuid", accountGuid},
-                {"primaryCoin", primairyCoin},
-                {"secondaryCoin", secondairyCoin},
+                {"primaryCoin", primaryCoin},
+                {"secondaryCoin", secondaryCoin},
                 {"contractName", contractName},
             });
         }
@@ -66,9 +66,9 @@ namespace Haasonline.Public.LocalApi.CSharp.Apis
             return await NewBot<T>(botType, name, accountGuid, market.PrimaryCurrency, market.SecondaryCurrency, market.ContractName);
         }
 
-        public async Task<HaasonlineClientResponse<JObject>> NewBot(EnumCustomBotType botType, string name, string accountGuid, string primairyCoin, string secondairyCoin, string contractName)
+        public async Task<HaasonlineClientResponse<JObject>> NewBot(EnumCustomBotType botType, string name, string accountGuid, string primaryCoin, string secondaryCoin, string contractName)
         {
-            return await NewBot<JObject>(botType, name, accountGuid, primairyCoin, secondairyCoin, contractName);
+            return await NewBot<JObject>(botType, name, accountGuid, primaryCoin, secondaryCoin, contractName);
         }
         public async Task<HaasonlineClientResponse<JObject>> NewBot(EnumCustomBotType botType, string name, string accountGuid, Market market)
         {
@@ -113,15 +113,15 @@ namespace Haasonline.Public.LocalApi.CSharp.Apis
             });
         }
 
-        public async Task<HaasonlineClientResponse<T>> CloneBot<T>(EnumCustomBotType botType, string botGuid, string botName, string accountGuid, string primairyCoin, string secondairyCoin, string contractName, decimal leverage) where T : BaseCustomBot
+        public async Task<HaasonlineClientResponse<T>> CloneBot<T>(EnumCustomBotType botType, string botGuid, string botName, string accountGuid, string primaryCoin, string secondaryCoin, string contractName, decimal leverage) where T : BaseCustomBot
         {
             return await ExecuteAsync<T>("/CloneCustomBot", new Dictionary<string, string>
             {
                 {"botGuid", botGuid},
                 {"botName", botName},
                 {"accountGuid", accountGuid},
-                {"primaryCoin", primairyCoin},
-                {"secondaryCoin", secondairyCoin},
+                {"primaryCoin", primaryCoin},
+                {"secondaryCoin", secondaryCoin},
                 {"contractName", contractName},
                 {"leverage", leverage.ToString(CultureInfo.InvariantCulture)},
             });
@@ -138,15 +138,15 @@ namespace Haasonline.Public.LocalApi.CSharp.Apis
         #endregion
 
         #region Bot Setup
-        public async Task<HaasonlineClientResponse<AccumulationBot>> SetupAccumulationBot(string botName, string botGuid, string accountGuid, string primairyCoin, string secondairyCoin, EnumAccumulationBotStopType stopType, decimal stopTypeValue, decimal randomOrderSizeX, decimal randomOrderSizeY, int randomOrderTimeX, int randomOrderTimeY, EnumOrderType direction, bool triggerOnPrice, bool triggerWhenHiger, decimal triggerValue)
+        public async Task<HaasonlineClientResponse<AccumulationBot>> SetupAccumulationBot(string botName, string botGuid, string accountGuid, string primaryCoin, string secondaryCoin, EnumAccumulationBotStopType stopType, decimal stopTypeValue, decimal randomOrderSizeX, decimal randomOrderSizeY, int randomOrderTimeX, int randomOrderTimeY, EnumOrderType direction, bool triggerOnPrice, bool triggerWhenHiger, decimal triggerValue)
         {
             return await ExecuteAsync<AccumulationBot>("/SetupAccumulationBot", new Dictionary<string, string>()
             {
                 {"botName", botName},
                 {"botGuid", botGuid},
                 {"accountGuid", accountGuid},
-                {"primaryCoin", primairyCoin},
-                {"secondaryCoin", secondairyCoin},
+                {"primaryCoin", primaryCoin},
+                {"secondaryCoin", secondaryCoin},
                 {"stopTypeValue", stopTypeValue.ToString()},
 
                 {"randomOrderSizeX", randomOrderSizeX.ToString(CultureInfo.InvariantCulture)},
@@ -175,15 +175,15 @@ namespace Haasonline.Public.LocalApi.CSharp.Apis
                 {"index", JsonConvert.SerializeObject(indexes)},
             });
         }
-        public async Task<HaasonlineClientResponse<EmailBot>> SetupEmailBot(string botGuid, string botName, string accountGuid, string primairyCoin, string secondairyCoin, string contractName, decimal leverage, decimal tradeAmount, decimal fee, string templateGuid, string position, List<EmailBotAction> actions, decimal stopLoss, decimal minChangeToBuy, decimal minChangeToSell)
+        public async Task<HaasonlineClientResponse<EmailBot>> SetupEmailBot(string botGuid, string botName, string accountGuid, string primaryCoin, string secondaryCoin, string contractName, decimal leverage, decimal tradeAmount, decimal fee, string templateGuid, string position, List<EmailBotAction> actions, decimal stopLoss, decimal minChangeToBuy, decimal minChangeToSell)
         {
             return await ExecuteAsync<EmailBot>("/SetupEmailBot", new Dictionary<string, string>()
             {
                 {"botGuid", botGuid},
                 {"botName", botName},
                 {"accountGuid", accountGuid},
-                {"primaryCoin", primairyCoin},
-                {"secondaryCoin", secondairyCoin},
+                {"primaryCoin", primaryCoin},
+                {"secondaryCoin", secondaryCoin},
                 {"contractName", contractName},
                 {"position", position},
                 {"templateGuid", templateGuid},
@@ -230,18 +230,18 @@ namespace Haasonline.Public.LocalApi.CSharp.Apis
                 {"safetyMoveInOut", saveObject.SafetyMoveInOut.ToString(CultureInfo.InvariantCulture)},
             });
         }
-        public async Task<HaasonlineClientResponse<InterExchangeArbitrageBot>> SetupInterExchangeArbitrageBot(string botGuid, string botName, string accountGuid, string accountGuid2, string primairyCoin, string secondairyCoin, string primairyCoin2, string secondairyCoin2, decimal tradeAmount, decimal triggerLevel, string templateGuid, decimal maxAmount, int maxTrades)
+        public async Task<HaasonlineClientResponse<InterExchangeArbitrageBot>> SetupInterExchangeArbitrageBot(string botGuid, string botName, string accountGuid, string accountGuid2, string primaryCoin, string secondaryCoin, string primaryCoin2, string secondaryCoin2, decimal tradeAmount, decimal triggerLevel, string templateGuid, decimal maxAmount, int maxTrades)
         {
             return await ExecuteAsync<InterExchangeArbitrageBot>("/SetupInterExchangeArbitrageBot", new Dictionary<string, string>()
             {
                 {"botGuid", botGuid},
                 {"botName", botName},
                 {"accountGuid", accountGuid},
-                {"primaryCoin", primairyCoin},
-                {"secondaryCoin", secondairyCoin},
+                {"primaryCoin", primaryCoin},
+                {"secondaryCoin", secondaryCoin},
                 {"accountGuid2", accountGuid2},
-                {"primairyCoin2", primairyCoin2},
-                {"secondairyCoin2", secondairyCoin2},
+                {"primairyCoin2", primaryCoin2},
+                {"secondairyCoin2", secondaryCoin2},
                 {"tradeAmount", tradeAmount.ToString(CultureInfo.InvariantCulture)},
                 {"triggerLevel", triggerLevel.ToString(CultureInfo.InvariantCulture)},
                 {"templateGuid", templateGuid.ToString(CultureInfo.InvariantCulture)},
@@ -249,15 +249,15 @@ namespace Haasonline.Public.LocalApi.CSharp.Apis
                 {"maxTrades", maxTrades.ToString(CultureInfo.InvariantCulture)},
             });
         }
-        public async Task<HaasonlineClientResponse<BaseCustomBot>> SetupIntellibotAlice(string botGuid, string botName, string accountGuid, string primairyCoin, string secondairyCoin, string contractName, decimal tradeAmount, decimal fee, decimal leverage, string position)
+        public async Task<HaasonlineClientResponse<BaseCustomBot>> SetupIntellibotAlice(string botGuid, string botName, string accountGuid, string primaryCoin, string secondaryCoin, string contractName, decimal tradeAmount, decimal fee, decimal leverage, string position)
         {
             return await ExecuteAsync<BaseCustomBot>("/SetupIntellibotAlice", new Dictionary<string, string>()
             {
                 {"botGuid", botGuid},
                 {"botName", botName},
                 {"accountGuid", accountGuid},
-                {"primaryCoin", primairyCoin},
-                {"secondaryCoin", secondairyCoin},
+                {"primaryCoin", primaryCoin},
+                {"secondaryCoin", secondaryCoin},
                 {"contractName", contractName},
                 {"leverage", leverage.ToString(CultureInfo.InvariantCulture)},
                 {"tradeAmount", tradeAmount.ToString(CultureInfo.InvariantCulture)},
@@ -265,15 +265,15 @@ namespace Haasonline.Public.LocalApi.CSharp.Apis
                 {"fee", fee.ToString(CultureInfo.InvariantCulture)},
             });
         }
-        public async Task<HaasonlineClientResponse<MarketMarkingBot>> SetupMarketMakingBot(string botGuid, string botName, string accountGuid, string primairyCoin, string secondairyCoin, decimal tradeamount, decimal fee, decimal offset, int resetTimeout, bool usedSecondOrder, decimal secondOffset)
+        public async Task<HaasonlineClientResponse<MarketMarkingBot>> SetupMarketMakingBot(string botGuid, string botName, string accountGuid, string primaryCoin, string secondaryCoin, decimal tradeamount, decimal fee, decimal offset, int resetTimeout, bool usedSecondOrder, decimal secondOffset)
         {
             return await ExecuteAsync<MarketMarkingBot>("/SetupMarketMakingBot", new Dictionary<string, string>()
             {
                 {"botGuid", botGuid},
                 {"botName", botName},
                 {"accountGuid", accountGuid},
-                {"primaryCoin", primairyCoin},
-                {"secondaryCoin", secondairyCoin},
+                {"primaryCoin", primaryCoin},
+                {"secondaryCoin", secondaryCoin},
                 {"tradeAmount", tradeamount.ToString(CultureInfo.InvariantCulture)},
                 {"fee", fee.ToString(CultureInfo.InvariantCulture)},
                 {"priceOffset", offset.ToString(CultureInfo.InvariantCulture)},
@@ -282,15 +282,15 @@ namespace Haasonline.Public.LocalApi.CSharp.Apis
                 {"secondOrderPriceOffset", secondOffset.ToString(CultureInfo.InvariantCulture)},
             });
         }
-        public async Task<HaasonlineClientResponse<MadHatterBot>> SetupMadHatterBot(string botGuid, string botName, string accountGuid, string primairyCoin, string secondairyCoin, decimal tradeAmount, decimal fee, string templateGuid, string position, int interval, bool consensusmode, bool disableAfterStopLoss)
+        public async Task<HaasonlineClientResponse<MadHatterBot>> SetupMadHatterBot(string botGuid, string botName, string accountGuid, string primaryCoin, string secondaryCoin, decimal tradeAmount, decimal fee, string templateGuid, string position, int interval, bool consensusmode, bool disableAfterStopLoss)
         {
             return await ExecuteAsync<MadHatterBot>("/SetupMadHatterBot", new Dictionary<string, string>()
             {
                 {"botName", botName},
                 {"botGuid", botGuid},
                 {"accountGuid", accountGuid},
-                {"primaryCoin", primairyCoin},
-                {"secondaryCoin", secondairyCoin},
+                {"primaryCoin", primaryCoin},
+                {"secondaryCoin", secondaryCoin},
                 {"templateGuid", templateGuid},
                 {"position", position},
                 {"fee", fee.ToString(CultureInfo.InvariantCulture)},
@@ -301,26 +301,26 @@ namespace Haasonline.Public.LocalApi.CSharp.Apis
                 {"interval", interval.ToString(CultureInfo.InvariantCulture)},
             });
         }
-        public async Task<HaasonlineClientResponse<OrderBot>> SetupOrderBot(string botGuid, string botName, string accountGuid, string primairyCoin, string secondairyCoin)
+        public async Task<HaasonlineClientResponse<OrderBot>> SetupOrderBot(string botGuid, string botName, string accountGuid, string primaryCoin, string secondaryCoin)
         {
             return await ExecuteAsync<OrderBot>("/SetupOrderBot", new Dictionary<string, string>()
             {
                 {"botName", botName},
                 {"botGuid", botGuid},
                 {"accountGuid", accountGuid},
-                {"primaryCoin", primairyCoin},
-                {"secondaryCoin", secondairyCoin},
+                {"primaryCoin", primaryCoin},
+                {"secondaryCoin", secondaryCoin},
             });
         }
-        public async Task<HaasonlineClientResponse<BaseCustomBot>> SetupPingPongBot(string botGuid, string botName, string accountGuid, string primairyCoin, string secondairyCoin, string contractName, decimal leverage, decimal tradeAmount, decimal fee, string position)
+        public async Task<HaasonlineClientResponse<BaseCustomBot>> SetupPingPongBot(string botGuid, string botName, string accountGuid, string primaryCoin, string secondaryCoin, string contractName, decimal leverage, decimal tradeAmount, decimal fee, string position)
         {
             return await ExecuteAsync<BaseCustomBot>("/SetupPingPongBot", new Dictionary<string, string>()
             {
                 {"botGuid", botGuid},
                 {"botName", botName},
                 {"accountGuid", accountGuid},
-                {"primaryCoin", primairyCoin},
-                {"secondaryCoin", secondairyCoin},
+                {"primaryCoin", primaryCoin},
+                {"secondaryCoin", secondaryCoin},
                 {"contractName", contractName},
                 {"leverage", leverage.ToString(CultureInfo.InvariantCulture)},
                 {"tradeAmount", tradeAmount.ToString(CultureInfo.InvariantCulture)},
@@ -328,15 +328,15 @@ namespace Haasonline.Public.LocalApi.CSharp.Apis
                 {"fee", fee.ToString(CultureInfo.InvariantCulture)},
             });
         }
-        public async Task<HaasonlineClientResponse<ScalperBot>> SetupScalpingBot(string botGuid, string botName, string accountGuid, string primairyCoin, string secondairyCoin, string contractName, decimal leverage, decimal tradeAmount, decimal fee, string position, string templateGuid, decimal targetPercentage, decimal safetyValue)
+        public async Task<HaasonlineClientResponse<ScalperBot>> SetupScalpingBot(string botGuid, string botName, string accountGuid, string primaryCoin, string secondaryCoin, string contractName, decimal leverage, decimal tradeAmount, decimal fee, string position, string templateGuid, decimal targetPercentage, decimal safetyValue)
         {
             return await ExecuteAsync<ScalperBot>("/SetupScalpingBot", new Dictionary<string, string>()
             {
                 {"botGuid", botGuid},
                 {"botName", botName},
                 {"accountGuid", accountGuid},
-                {"primaryCoin", primairyCoin},
-                {"secondaryCoin", secondairyCoin},
+                {"primaryCoin", primaryCoin},
+                {"secondaryCoin", secondaryCoin},
                 {"contractName", contractName},
                 {"leverage", leverage.ToString(CultureInfo.InvariantCulture)},
                 {"tradeAmount", tradeAmount.ToString(CultureInfo.InvariantCulture)},
@@ -347,15 +347,15 @@ namespace Haasonline.Public.LocalApi.CSharp.Apis
                 {"fee", fee.ToString(CultureInfo.InvariantCulture)},
             });
         }
-        public async Task<HaasonlineClientResponse<ScriptBot>> SetupScriptBot(string botGuid, string botName, string accountGuid, string primairyCoin, string secondairyCoin, string contractName, decimal leverage, decimal tradeAmount, decimal fee, string templateGuid, string position, string scriptId)
+        public async Task<HaasonlineClientResponse<ScriptBot>> SetupScriptBot(string botGuid, string botName, string accountGuid, string primaryCoin, string secondaryCoin, string contractName, decimal leverage, decimal tradeAmount, decimal fee, string templateGuid, string position, string scriptId)
         {
             return await ExecuteAsync<ScriptBot>("/SetupScriptBot", new Dictionary<string, string>()
             {
                 {"botName", botName},
                 {"botGuid", botGuid},
                 {"accountGuid", accountGuid},
-                {"primaryCoin", primairyCoin},
-                {"secondaryCoin", secondairyCoin},
+                {"primaryCoin", primaryCoin},
+                {"secondaryCoin", secondaryCoin},
                 {"contractName", contractName},
                 {"templateGuid", templateGuid},
                 {"leverage", leverage.ToString(CultureInfo.InvariantCulture)},
@@ -366,15 +366,15 @@ namespace Haasonline.Public.LocalApi.CSharp.Apis
                 {"scriptId", scriptId},
             });
         }
-        public async Task<HaasonlineClientResponse<ZoneRecoveryBot>> SetupZoneRecoveryBot(string botGuid, string botName, string accountGuid, string primairyCoin, string secondairyCoin, string contractName, decimal leverage, decimal tradeAmount, decimal maxTradeAmount, decimal factorShort, decimal factorLong, decimal targetProfit, decimal zone)
+        public async Task<HaasonlineClientResponse<ZoneRecoveryBot>> SetupZoneRecoveryBot(string botGuid, string botName, string accountGuid, string primaryCoin, string secondaryCoin, string contractName, decimal leverage, decimal tradeAmount, decimal maxTradeAmount, decimal factorShort, decimal factorLong, decimal targetProfit, decimal zone)
         {
             return await ExecuteAsync<ZoneRecoveryBot>("/SetupZoneRecoveryBot", new Dictionary<string, string>()
             {
                 {"botGuid", botGuid},
                 {"botName", botName},
                 {"accountGuid", accountGuid},
-                {"primaryCoin", primairyCoin},
-                {"secondaryCoin", secondairyCoin},
+                {"primaryCoin", primaryCoin},
+                {"secondaryCoin", secondaryCoin},
                 {"contractName", contractName},
                 {"leverage", leverage.ToString(CultureInfo.InvariantCulture)},
                 {"tradeAmount", tradeAmount.ToString(CultureInfo.InvariantCulture)},
