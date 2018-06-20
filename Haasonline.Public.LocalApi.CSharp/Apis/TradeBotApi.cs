@@ -57,14 +57,14 @@ namespace Haasonline.Public.LocalApi.CSharp.Apis
             });
         }
 
-        public async Task<HaasonlineClientResponse<TradeBot>> NewBot(string botName, string accountId, string primairyCoin, string secondairyCoin, string contractName, decimal leverage, string groupId = "")
+        public async Task<HaasonlineClientResponse<TradeBot>> NewBot(string botName, string accountId, string primaryCoin, string secondaryCoin, string contractName, decimal leverage, string groupId = "")
         {
             return await ExecuteAsync<TradeBot>("/NewTradeBot", new Dictionary<string, string>
             {
                 { "botName", botName },
                 { "accountGuid", accountId },
-                { "primaryCoin", primairyCoin},
-                { "secondaryCoin", secondairyCoin},
+                { "primaryCoin", primaryCoin},
+                { "secondaryCoin", secondaryCoin},
                 { "contractName", contractName},
                 { "leverage", leverage.ToString(CultureInfo.InvariantCulture)},
                 { "groupId", groupId},
@@ -115,15 +115,15 @@ namespace Haasonline.Public.LocalApi.CSharp.Apis
             });
         }
 
-        public async Task<HaasonlineClientResponse<TradeBot>> SetupBot(string botGuid, string botName, string accountId, string primairyCoin, string secondairyCoin, string contractName, decimal leverage, bool useConsensus, bool copyMarketToElements = true, string groupId = "")
+        public async Task<HaasonlineClientResponse<TradeBot>> SetupBot(string botGuid, string botName, string accountId, string primaryCoin, string secondaryCoin, string contractName, decimal leverage, bool useConsensus, bool copyMarketToElements = true, string groupId = "")
         {
             return await ExecuteAsync<TradeBot>("/SetupTradeBot", new Dictionary<string, string>
             {
                 { "botGuid", botGuid },
                 { "botName", botName },
                 {"accountGuid", accountId},
-                {"primaryCoin", primairyCoin},
-                {"secondaryCoin", secondairyCoin},
+                {"primaryCoin", primaryCoin},
+                {"secondaryCoin", secondaryCoin},
                 {"contractName", contractName},
                 {"leverage", leverage.ToString(CultureInfo.InvariantCulture)},
                 {"groupId", groupId},
@@ -224,30 +224,30 @@ namespace Haasonline.Public.LocalApi.CSharp.Apis
             });
         }
 
-        public async Task<HaasonlineClientResponse<TradeBot>> SetupIndicator(string botGuid, string elementGuid, EnumPriceSource priceSource, string primairyCoin, string secondairyCoin, string contractName, int interval, EnumPriceChartType chartType, int delay)
+        public async Task<HaasonlineClientResponse<TradeBot>> SetupIndicator(string botGuid, string elementGuid, EnumPriceSource priceSource, string primaryCoin, string secondaryCoin, string contractName, int interval, EnumPriceChartType chartType, int delay)
         {
             return await ExecuteAsync<TradeBot>("/SetupTradeBotIndicator", new Dictionary<string, string>
             {
                 { "botGuid", botGuid },
                 { "elementGuid", elementGuid },
                 { "priceSourceName", priceSource.ToString()},
-                { "primaryCoin", primairyCoin},
-                { "secondaryCoin", secondairyCoin},
+                { "primaryCoin", primaryCoin},
+                { "secondaryCoin", secondaryCoin},
                 { "contractName", contractName},
                 { "interval", interval.ToString(CultureInfo.InvariantCulture)},
                 { "delay", delay.ToString()},
                 { "priceChartType", chartType.ToString()},
             });
         }
-        public async Task<HaasonlineClientResponse<TradeBot>> SetupSafety(string botGuid, string elementGuid, EnumPriceSource priceSource, string primairyCoin, string secondairyCoin, string contractName, EnumFundsPosition buySignal, EnumFundsPosition sellSignal)
+        public async Task<HaasonlineClientResponse<TradeBot>> SetupSafety(string botGuid, string elementGuid, EnumPriceSource priceSource, string primaryCoin, string secondaryCoin, string contractName, EnumFundsPosition buySignal, EnumFundsPosition sellSignal)
         {
             return await ExecuteAsync<TradeBot>("/SetupTradeBotSafety", new Dictionary<string, string>
             {
                 { "botGuid", botGuid },
                 { "elementGuid", elementGuid },
                 { "priceSourceName", priceSource.ToString()},
-                { "primaryCoin", primairyCoin},
-                { "secondaryCoin", secondairyCoin},
+                { "primaryCoin", primaryCoin},
+                { "secondaryCoin", secondaryCoin},
                 { "contractName", contractName},
                 { "mappedBuySignal", buySignal.ToString()},
                 { "mappedSellSignal", sellSignal.ToString()},
@@ -349,15 +349,15 @@ namespace Haasonline.Public.LocalApi.CSharp.Apis
         }
 
 
-        public async Task<HaasonlineClientResponse<TradeBot>> CloneBot(string botGuid, string botName, string accountId, string primairyCoin, string secondairyCoin, string contractName, decimal leverage, bool copySafeties, bool copyIndicators, bool copyInsurances, bool copyParameters, bool copyMarketToElements)
+        public async Task<HaasonlineClientResponse<TradeBot>> CloneBot(string botGuid, string botName, string accountId, string primaryCoin, string secondaryCoin, string contractName, decimal leverage, bool copySafeties, bool copyIndicators, bool copyInsurances, bool copyParameters, bool copyMarketToElements)
         {
             return await ExecuteAsync<TradeBot>("/CloneTradeBot", new Dictionary<string, string>
             {
                 { "botGuid", botGuid },
                 { "botName", botName },
                 {"accountGuid", accountId},
-                {"primaryCoin", primairyCoin},
-                {"secondaryCoin", secondairyCoin},
+                {"primaryCoin", primaryCoin},
+                {"secondaryCoin", secondaryCoin},
                 {"contractName", contractName},
                 {"leverage", leverage.ToString(CultureInfo.InvariantCulture)},
                 {"copySafeties", copySafeties.ToString()},

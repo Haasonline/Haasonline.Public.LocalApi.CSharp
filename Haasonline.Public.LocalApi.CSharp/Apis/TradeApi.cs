@@ -11,13 +11,13 @@ namespace Haasonline.Public.LocalApi.CSharp.Apis
         {
         }
 
-        public async Task<HaasonlineClientResponse<string>> PlaceSpotBuyOrder(string accountGuid, string primairyCoin, string secondairyCoin, decimal price, decimal amount, int? timeout = null)
+        public async Task<HaasonlineClientResponse<string>> PlaceSpotBuyOrder(string accountGuid, string primaryCoin, string secondaryCoin, decimal price, decimal amount, int? timeout = null)
         {
             var arg = new Dictionary<string, string>()
             {
                 {"accountGuid", accountGuid},
-                {"primaryCoin", primairyCoin},
-                {"secondaryCoin", secondairyCoin},
+                {"primaryCoin", primaryCoin},
+                {"secondaryCoin", secondaryCoin},
                 {"price", price.ToString(CultureInfo.InvariantCulture)},
                 {"amount", amount.ToString(CultureInfo.InvariantCulture)},
             };
@@ -27,13 +27,13 @@ namespace Haasonline.Public.LocalApi.CSharp.Apis
 
             return await ExecuteAsync<string>("/PlaceSpotBuyOrder", arg);
         }
-        public async Task<HaasonlineClientResponse<string>> PlaceSpotSellOrder(string accountGuid, string primairyCoin, string secondairyCoin, decimal price, decimal amount, int? timeout = null)
+        public async Task<HaasonlineClientResponse<string>> PlaceSpotSellOrder(string accountGuid, string primaryCoin, string secondaryCoin, decimal price, decimal amount, int? timeout = null)
         {
             var arg = new Dictionary<string, string>()
             {
                 {"accountGuid", accountGuid},
-                {"primaryCoin", primairyCoin},
-                {"secondaryCoin", secondairyCoin},
+                {"primaryCoin", primaryCoin},
+                {"secondaryCoin", secondaryCoin},
                 {"price", price.ToString(CultureInfo.InvariantCulture)},
                 {"amount", amount.ToString(CultureInfo.InvariantCulture)},
             };
@@ -44,13 +44,13 @@ namespace Haasonline.Public.LocalApi.CSharp.Apis
             return await ExecuteAsync<string>("/PlaceSpotSellOrder", arg);
         }
 
-        public async Task<HaasonlineClientResponse<string>> PlaceEnterLongOrder(string accountGuid, string primairyCoin, string secondairyCoin, string contractName, decimal price, decimal amount, decimal leverage, int? timeout = null)
+        public async Task<HaasonlineClientResponse<string>> PlaceEnterLongOrder(string accountGuid, string primaryCoin, string secondaryCoin, string contractName, decimal price, decimal amount, decimal leverage, int? timeout = null)
         {
             var arg = new Dictionary<string, string>()
             {
                 {"accountGuid", accountGuid},
-                {"primaryCoin", primairyCoin},
-                {"secondaryCoin", secondairyCoin},
+                {"primaryCoin", primaryCoin},
+                {"secondaryCoin", secondaryCoin},
                 {"contractName", contractName},
                 {"price", price.ToString(CultureInfo.InvariantCulture)},
                 {"amount", amount.ToString(CultureInfo.InvariantCulture)},
@@ -62,13 +62,13 @@ namespace Haasonline.Public.LocalApi.CSharp.Apis
 
             return await ExecuteAsync<string>("/PlaceLeverageEnterLongOrder", arg);
         }
-        public async Task<HaasonlineClientResponse<string>> PlaceExitLongOrder(string accountGuid, string primairyCoin, string secondairyCoin, string contractName, decimal price, decimal amount, decimal leverage, int? timeout = null)
+        public async Task<HaasonlineClientResponse<string>> PlaceExitLongOrder(string accountGuid, string primaryCoin, string secondaryCoin, string contractName, decimal price, decimal amount, decimal leverage, int? timeout = null)
         {
             var arg = new Dictionary<string, string>()
             {
                 {"accountGuid", accountGuid},
-                {"primaryCoin", primairyCoin},
-                {"secondaryCoin", secondairyCoin},
+                {"primaryCoin", primaryCoin},
+                {"secondaryCoin", secondaryCoin},
                 {"contractName", contractName},
                 {"price", price.ToString(CultureInfo.InvariantCulture)},
                 {"amount", amount.ToString(CultureInfo.InvariantCulture)},
@@ -80,13 +80,13 @@ namespace Haasonline.Public.LocalApi.CSharp.Apis
 
             return await ExecuteAsync<string>("/PlaceLeverageExitLongOrder", arg);
         }
-        public async Task<HaasonlineClientResponse<string>> PlaceEnterShortOrder(string accountGuid, string primairyCoin, string secondairyCoin, string contractName, decimal price, decimal amount, decimal leverage, int? timeout = null)
+        public async Task<HaasonlineClientResponse<string>> PlaceEnterShortOrder(string accountGuid, string primaryCoin, string secondaryCoin, string contractName, decimal price, decimal amount, decimal leverage, int? timeout = null)
         {
             var arg = new Dictionary<string, string>()
             {
                 {"accountGuid", accountGuid},
-                {"primaryCoin", primairyCoin},
-                {"secondaryCoin", secondairyCoin},
+                {"primaryCoin", primaryCoin},
+                {"secondaryCoin", secondaryCoin},
                 {"contractName", contractName},
                 {"price", price.ToString(CultureInfo.InvariantCulture)},
                 {"amount", amount.ToString(CultureInfo.InvariantCulture)},
@@ -98,13 +98,13 @@ namespace Haasonline.Public.LocalApi.CSharp.Apis
 
             return await ExecuteAsync<string>("/PlaceLeverageEnterShortOrder", arg);
         }
-        public async Task<HaasonlineClientResponse<string>> PlaceExitShortOrder(string accountGuid, string primairyCoin, string secondairyCoin, string contractName, decimal price, decimal amount, decimal leverage, int? timeout = null)
+        public async Task<HaasonlineClientResponse<string>> PlaceExitShortOrder(string accountGuid, string primaryCoin, string secondaryCoin, string contractName, decimal price, decimal amount, decimal leverage, int? timeout = null)
         {
             var arg = new Dictionary<string, string>()
             {
                 {"accountGuid", accountGuid},
-                {"primaryCoin", primairyCoin},
-                {"secondaryCoin", secondairyCoin},
+                {"primaryCoin", primaryCoin},
+                {"secondaryCoin", secondaryCoin},
                 {"contractName", contractName},
                 {"price", price.ToString(CultureInfo.InvariantCulture)},
                 {"amount", amount.ToString(CultureInfo.InvariantCulture)},
