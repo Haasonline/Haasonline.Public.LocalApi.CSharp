@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
+using Haasonline.LocalApi.CSharp.Enums;
 using Haasonline.Public.LocalApi.CSharp.DataObjects;
 using Haasonline.Public.LocalApi.CSharp.DataObjects.TradeBot;
 using Haasonline.Public.LocalApi.CSharp.Enums;
