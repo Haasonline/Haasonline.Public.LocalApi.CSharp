@@ -112,6 +112,18 @@ namespace Haasonline.Public.LocalApi.CSharp.Apis
                 {"endUnix", endUnix.ToString()}
             });
         }
+        public async Task<HaasonlineClientResponse<T>> BacktestBot<T>(string botGuid, int minutesToTest, string accountGuid, string primaryCoin, string secondaryCoin, string contractName) where T : BaseCustomBot
+        {
+            return await ExecuteAsync<T>("/BacktestCustomBotOnMarket", new Dictionary<string, string>
+            {
+                {"botGuid", botGuid},
+                {"minutesToTest", minutesToTest.ToString()},
+                {"accountGuid", accountGuid},
+                {"primaryCoin", primaryCoin},
+                {"secondaryCoin", secondaryCoin},
+                {"contractName", contractName},
+            });
+        }
 
         public async Task<HaasonlineClientResponse<T>> CloneBot<T>(EnumCustomBotType botType, string botGuid, string botName, string accountGuid, string primaryCoin, string secondaryCoin, string contractName, decimal leverage) where T : BaseCustomBot
         {

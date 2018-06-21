@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{4E6355B9-E3B1-4E8B-BB77-729EC1E43804}</ProjectGuid>
+    <ProjectGuid>{3F84F03F-4B5B-434D-88B8-825A6C62B151}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <RootNamespace>Haasonline.Public.LocalApi.CSharp</RootNamespace>
     <AssemblyName>Haasonline.Public.LocalApi.CSharp</AssemblyName>
@@ -45,11 +45,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Apis\AccountDataApi.cs" />
+    <Compile Include="DataObjects\AccountData\AccountInformation.cs" />
     <Compile Include="DataObjects\CustomBots\DataObjects\Insurance.cs" />
     <Compile Include="DataObjects\CustomBots\DataObjects\Safety.cs" />
     <Compile Include="Enums\EnumErrorCode.cs" />
     <Compile Include="Enums\EnumIndicator.cs" />
     <Compile Include="Enums\EnumInsurances.cs" />
+    <Compile Include="Enums\EnumPlatformType.cs" />
     <Compile Include="Enums\EnumPriceChartType.cs" />
     <Compile Include="Enums\EnumSafety.cs" />
     <Compile Include="Enums\EnumLimitOrderPriceType.cs" />
