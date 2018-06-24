@@ -15,6 +15,11 @@ namespace Haasonline.Public.LocalApi.CSharp.Apis
         {
         }
 
+        public async Task<HaasonlineClientResponse<SoftwareInformation>> GetSoftwareDetails()
+        {
+            return await ExecuteAsync<SoftwareInformation>("/GetSoftwareDetails");
+        }
+
         public async Task<HaasonlineClientResponse<Dictionary<string, string>>> GetEnabledAccounts()
         {
             return await ExecuteAsync<Dictionary<string, string>>("/GetEnabledAccounts");

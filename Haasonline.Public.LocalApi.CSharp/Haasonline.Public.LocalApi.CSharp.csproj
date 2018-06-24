@@ -46,12 +46,14 @@
   <ItemGroup>
     <Compile Include="Apis\AccountDataApi.cs" />
     <Compile Include="DataObjects\AccountData\AccountInformation.cs" />
+    <Compile Include="Enums\EnumSoftwareLicence.cs" />
+    <Compile Include="DataObjects\AccountData\SoftwareInformation.cs" />
     <Compile Include="DataObjects\CustomBots\DataObjects\Insurance.cs" />
     <Compile Include="DataObjects\CustomBots\DataObjects\Safety.cs" />
     <Compile Include="Enums\EnumErrorCode.cs" />
     <Compile Include="Enums\EnumIndicator.cs" />
     <Compile Include="Enums\EnumInsurances.cs" />
-    <Compile Include="Enums\EnumPlatformType.cs" />
+    <Compile Include="Enums\enumPlatform.cs" />
     <Compile Include="Enums\EnumPriceChartType.cs" />
     <Compile Include="Enums\EnumSafety.cs" />
     <Compile Include="Enums\EnumLimitOrderPriceType.cs" />
