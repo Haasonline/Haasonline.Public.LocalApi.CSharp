@@ -45,7 +45,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Apis\AccountDataApi.cs" />
+    <Compile Include="Apis\AdvancedOrderApi.cs" />
     <Compile Include="DataObjects\AccountData\AccountInformation.cs" />
+    <Compile Include="DataObjects\AdvancedOrders\AdvancedOrderBase.cs" />
+    <Compile Include="DataObjects\AdvancedOrders\StopTakeProfitOrder.cs" />
+    <Compile Include="DataObjects\AdvancedOrders\TrailingStop.cs" />
     <Compile Include="Enums\EnumSoftwareLicence.cs" />
     <Compile Include="DataObjects\AccountData\SoftwareInformation.cs" />
     <Compile Include="DataObjects\CustomBots\DataObjects\Insurance.cs" />
