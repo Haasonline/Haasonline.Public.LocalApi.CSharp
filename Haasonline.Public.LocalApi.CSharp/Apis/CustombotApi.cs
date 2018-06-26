@@ -294,7 +294,7 @@ namespace Haasonline.Public.LocalApi.CSharp.Apis
                 {"secondOrderPriceOffset", secondOffset.ToString(CultureInfo.InvariantCulture)},
             });
         }
-        public async Task<HaasonlineClientResponse<MadHatterBot>> SetupMadHatterBot(string botGuid, string botName, string accountGuid, string primaryCoin, string secondaryCoin, decimal tradeAmount, decimal fee, string templateGuid, string position, int interval, bool consensusmode, bool disableAfterStopLoss)
+        public async Task<HaasonlineClientResponse<MadHatterBot>> SetupMadHatterBot(string botGuid, string botName, string accountGuid, string primaryCoin, string secondaryCoin, decimal tradeAmount, decimal fee, string templateGuid, string position, int interval, bool consensusmode, bool disableAfterStopLoss, bool includeIncompleteInterval)
         {
             return await ExecuteAsync<MadHatterBot>("/SetupMadHatterBot", new Dictionary<string, string>()
             {
@@ -311,6 +311,7 @@ namespace Haasonline.Public.LocalApi.CSharp.Apis
                 {"useTwoSignals", consensusmode.ToString()},
                 {"disableAfterStopLoss", disableAfterStopLoss.ToString(CultureInfo.InvariantCulture)},
                 {"interval", interval.ToString(CultureInfo.InvariantCulture)},
+                {"includeIncompleteInterval", includeIncompleteInterval.ToString()},
             });
         }
         public async Task<HaasonlineClientResponse<OrderBot>> SetupOrderBot(string botGuid, string botName, string accountGuid, string primaryCoin, string secondaryCoin)

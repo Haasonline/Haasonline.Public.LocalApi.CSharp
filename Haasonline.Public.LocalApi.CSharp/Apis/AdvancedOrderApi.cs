@@ -188,12 +188,13 @@ namespace Haasonline.Public.LocalApi.CSharp.Apis
 
 
 
-        public async Task<HaasonlineClientResponse<StopTakeProfitOrder>> SetupStopOrder(string name, string accountGuid, string primaryCoin, string secondaryCoin,
+        public async Task<HaasonlineClientResponse<StopTakeProfitOrder>> SetupStopOrder(string guid, string name, string accountGuid, string primaryCoin, string secondaryCoin,
             EnumOrderType direction, string executingTemplateGuid, decimal triggerPrice, decimal executionPrice, decimal amount,
             bool startOrderOnActivation, decimal startOrderPrice, string startTemplateGuid)
         {
             return await ExecuteAsync<StopTakeProfitOrder>("/AddStopOrder", new Dictionary<string, string>
             {
+                {"guid", guid },
                 {"name", name },
                 {"accountGuid", accountGuid },
                 {"primaryCoin", primaryCoin },
@@ -210,12 +211,13 @@ namespace Haasonline.Public.LocalApi.CSharp.Apis
             });
         }
 
-        public async Task<HaasonlineClientResponse<StopTakeProfitOrder>> SetupStopOrder(string name, string accountGuid, string primaryCoin, string secondaryCoin, string contractName,
+        public async Task<HaasonlineClientResponse<StopTakeProfitOrder>> SetupStopOrder(string guid, string name, string accountGuid, string primaryCoin, string secondaryCoin, string contractName,
             decimal leverage, EnumFundsMovingPosition direction, string executingTemplateGuid, decimal triggerPrice, decimal executionPrice, decimal amount,
             bool startOrderOnActivation, decimal startOrderPrice, string startTemplateGuid)
         {
             return await ExecuteAsync<StopTakeProfitOrder>("/AddStopOrder", new Dictionary<string, string>
             {
+                {"guid", guid },
                 {"name", name },
                 {"accountGuid", accountGuid },
                 {"primaryCoin", primaryCoin },
@@ -235,12 +237,13 @@ namespace Haasonline.Public.LocalApi.CSharp.Apis
 
 
 
-        public async Task<HaasonlineClientResponse<StopTakeProfitOrder>> SetupTakeProfitOrder(string name, string accountGuid, string primaryCoin, string secondaryCoin,
+        public async Task<HaasonlineClientResponse<StopTakeProfitOrder>> SetupTakeProfitOrder(string guid, string name, string accountGuid, string primaryCoin, string secondaryCoin,
             EnumOrderType direction, string executingTemplateGuid, decimal triggerPrice, decimal executionPrice, decimal amount,
             bool startOrderOnActivation, decimal startOrderPrice, string startTemplateGuid)
         {
             return await ExecuteAsync<StopTakeProfitOrder>("/AddTakeProfitOrder", new Dictionary<string, string>
             {
+                {"guid", guid },
                 {"name", name },
                 {"accountGuid", accountGuid },
                 {"primaryCoin", primaryCoin },
@@ -257,12 +260,13 @@ namespace Haasonline.Public.LocalApi.CSharp.Apis
             });
         }
 
-        public async Task<HaasonlineClientResponse<StopTakeProfitOrder>> SetupTakeProfitOrder(string name, string accountGuid, string primaryCoin, string secondaryCoin, string contractName,
+        public async Task<HaasonlineClientResponse<StopTakeProfitOrder>> SetupTakeProfitOrder(string guid, string name, string accountGuid, string primaryCoin, string secondaryCoin, string contractName,
             decimal leverage, EnumFundsMovingPosition direction, string executingTemplateGuid, decimal triggerPrice, decimal executionPrice, decimal amount,
             bool startOrderOnActivation, decimal startOrderPrice, string startTemplateGuid)
         {
             return await ExecuteAsync<StopTakeProfitOrder>("/AddTakeProfitOrder", new Dictionary<string, string>
             {
+                {"guid", guid },
                 {"name", name },
                 {"accountGuid", accountGuid },
                 {"primaryCoin", primaryCoin },
@@ -282,12 +286,13 @@ namespace Haasonline.Public.LocalApi.CSharp.Apis
 
 
 
-        public async Task<HaasonlineClientResponse<TrailingStop>> SetupTrailingStopOrder(string name, string accountGuid, string primaryCoin, string secondaryCoin,
+        public async Task<HaasonlineClientResponse<TrailingStop>> SetupTrailingStopOrder(string guid, string name, string accountGuid, string primaryCoin, string secondaryCoin,
             EnumOrderType direction, string executingTemplateGuid, decimal trailingStopPercentage, decimal amount,
             bool startOrderOnActivation, decimal startOrderPrice, string startTemplateGuid)
         {
             return await ExecuteAsync<TrailingStop>("/AddTrailingStopOrder", new Dictionary<string, string>
             {
+                {"guid", guid },
                 {"name", name },
                 {"accountGuid", accountGuid },
                 {"primaryCoin", primaryCoin },
@@ -303,12 +308,13 @@ namespace Haasonline.Public.LocalApi.CSharp.Apis
             });
         }
 
-        public async Task<HaasonlineClientResponse<TrailingStop>> SetupTrailingStopOrder(string name, string accountGuid, string primaryCoin, string secondaryCoin, string contractName,
+        public async Task<HaasonlineClientResponse<TrailingStop>> SetupTrailingStopOrder(string guid, string name, string accountGuid, string primaryCoin, string secondaryCoin, string contractName,
             decimal leverage, EnumFundsMovingPosition direction, string executingTemplateGuid, decimal trailingStopPercentage, decimal amount,
             bool startOrderOnActivation, decimal startOrderPrice, string startTemplateGuid)
         {
             return await ExecuteAsync<TrailingStop>("/AddTrailingStopOrder", new Dictionary<string, string>
             {
+                {"guid", guid },
                 {"name", name },
                 {"accountGuid", accountGuid },
                 {"primaryCoin", primaryCoin },
