@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using System.Collections.Specialized;
+using System.Globalization;
 using System.Threading.Tasks;
 using Haasonline.LocalApi.CSharp.Enums;
 using Haasonline.Public.LocalApi.CSharp.DataObjects;
@@ -13,9 +15,50 @@ namespace Haasonline.Public.LocalApi.CSharp.Apis
         {
         }
 
+        public async Task<HaasonlineClientResponse<SoftwareInformation>> GetSoftwareDetails()
+        {
+            return await ExecuteAsync<SoftwareInformation>("/GetSoftwareDetails");
+        }
+
         public async Task<HaasonlineClientResponse<Dictionary<string, string>>> GetEnabledAccounts()
         {
             return await ExecuteAsync<Dictionary<string, string>>("/GetEnabledAccounts");
+        }
+
+        public async Task<HaasonlineClientResponse<Dictionary<string, AccountInformation>>> GetAllAccountDetails()
+        {
+            return await ExecuteAsync<Dictionary<string, AccountInformation>>("/GetAllAccountDetails");
+        }
+
+        public async Task<HaasonlineClientResponse<AccountInformation>> GetAccountDetails(string accountGuid)
+        {
+            return await ExecuteAsync<AccountInformation>("/GetAccountDetails", new Dictionary<string, string>()
+            {
+                { "accountGuid", accountGuid }
+            });
+        }
+
+        public async Task<HaasonlineClientResponse<Wallet>> SimulatedAccountClearWallet(string accountGuid)
+        {
+            return await ExecuteAsync<Wallet>("/SimulatedAccountClearWallet", new Dictionary<string, string>
+            {
+                {"accountGuid", accountGuid }
+            });
+        }
+        public async Task<HaasonlineClientResponse<Wallet>> SimulatedAccountAddOrAdjustCoinAmount(string accountGuid, string coin, decimal amount)
+        {
+            return await ExecuteAsync<Wallet>("/SimulatedAccountAddOrAdjustCoinAmount", new Dictionary<string, string>
+            {
+                {"accountGuid", accountGuid },
+                {"coin", coin },
+                {"amount", amount.ToString(CultureInfo.InvariantCulture) }
+            });
+        }
+
+
+        public async Task<HaasonlineClientResponse<Dictionary<string, string>>> GetOrderTemplates()
+        {
+            return await ExecuteAsync<Dictionary<string, string>>("/GetOrderTemplates");
         }
 
         public async Task<HaasonlineClientResponse<Dictionary<string, Wallet>>> GetAllWallet()
