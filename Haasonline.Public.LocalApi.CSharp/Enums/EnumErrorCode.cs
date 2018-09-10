@@ -1,4 +1,4 @@
-﻿namespace Haasonline.LocalApi.CSharp.Enums
+﻿namespace Haasonline.Public.LocalApi.CSharp.Enums
 {
     public enum EnumErrorCode
     {

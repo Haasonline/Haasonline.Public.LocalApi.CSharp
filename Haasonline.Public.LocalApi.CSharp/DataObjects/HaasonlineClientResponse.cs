@@ -1,4 +1,4 @@
-﻿using Haasonline.LocalApi.CSharp.Enums;
+﻿using Haasonline.Public.LocalApi.CSharp.Enums;
 
 namespace Haasonline.Public.LocalApi.CSharp.DataObjects
 {

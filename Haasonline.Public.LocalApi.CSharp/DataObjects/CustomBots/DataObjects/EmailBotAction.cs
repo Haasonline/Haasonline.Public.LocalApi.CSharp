@@ -7,6 +7,7 @@ namespace Haasonline.Public.LocalApi.CSharp.DataObjects.CustomBots.DataObjects
     {
         public string Guid { get; set; } = "";
         public string ProviderGuid { get; set; } = "";
+        public string TemplateGuid { get; set; } = "";
         public List<EmailBotActionMessage> Messages { get; set; } = new List<EmailBotActionMessage>();
 
         public int TimeoutInSeconds { get; set; } = 65;
