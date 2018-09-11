@@ -6,7 +6,7 @@ namespace Haasonline.Public.LocalApi.CSharp.DataObjects.AccountData
 {
     public class BaseOrder
     {
-        public Market Market { get; set; }
+        public OrderPair Pair { get; set; }
         public string OrderId { get; set; }
         public EnumOrderStatus OrderStatus { get; set; }
 

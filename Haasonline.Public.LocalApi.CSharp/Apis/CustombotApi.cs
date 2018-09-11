@@ -437,21 +437,21 @@ namespace Haasonline.Public.LocalApi.CSharp.Apis
                 {"relocateBalance", relocateBalance.ToString()},
             });
         }
-        public async Task<HaasonlineClientResponse<AdvancedIndexBot>> AdvancedIndexBotRemoveIndex(string botGuid, string index, bool lowerBalance)
+        public async Task<HaasonlineClientResponse<AdvancedIndexBot>> AdvancedIndexBotRemoveIndex(string botGuid, string coin, bool lowerBalance)
         {
             return await ExecuteAsync<AdvancedIndexBot>("/AdvancedIndexBotRemoveIndex", new Dictionary<string, string>
             {
                 {"botGuid", botGuid},
-                {"index", index},
+                {"coin", coin},
                 {"lowerBalance", lowerBalance.ToString()},
             });
         }
-        public async Task<HaasonlineClientResponse<AdvancedIndexBot>> AdvancedIndexBotIncludeIndex(string botGuid, string index)
+        public async Task<HaasonlineClientResponse<AdvancedIndexBot>> AdvancedIndexBotIncludeIndex(string botGuid, string coin)
         {
             return await ExecuteAsync<AdvancedIndexBot>("/AdvancedIndexBotIncludeIndex", new Dictionary<string, string>
             {
                 {"botGuid", botGuid},
-                {"index", index},
+                {"coin", coin},
             });
         }
         public async Task<HaasonlineClientResponse<AdvancedIndexBot>> AdvancedIndexBotRebalanceBot(string botGuid)
@@ -472,12 +472,12 @@ namespace Haasonline.Public.LocalApi.CSharp.Apis
                 {"relocateBalance", relocateBalance.ToString()},
             });
         }
-        public async Task<HaasonlineClientResponse<AdvancedIndexBot>> CryptoIndexBotRemoveIndex(string botGuid, string index, bool lowerBalance)
+        public async Task<HaasonlineClientResponse<AdvancedIndexBot>> CryptoIndexBotRemoveIndex(string botGuid, string coin, bool lowerBalance)
         {
             return await ExecuteAsync<AdvancedIndexBot>("/CryptoIndexBotRemoveIndex", new Dictionary<string, string>
             {
                 {"botGuid", botGuid},
-                {"index", index},
+                {"coin", coin},
                 {"lowerBalance", lowerBalance.ToString()},
             });
         }
