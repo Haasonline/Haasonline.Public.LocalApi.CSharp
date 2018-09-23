@@ -22,6 +22,5 @@ namespace Haasonline.Public.LocalApi.CSharp.DataObjects.CustomBots
 
         public EnumFundsPosition MappedBuySignal { get; set; }
         public EnumFundsPosition MappedSellSignal { get; set; }
-        public EnumFundsPosition TradeAmountType { get; set; }
     }
 }
