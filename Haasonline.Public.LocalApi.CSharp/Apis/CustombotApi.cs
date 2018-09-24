@@ -462,9 +462,9 @@ namespace Haasonline.Public.LocalApi.CSharp.Apis
             });
         }
 
-        public async Task<HaasonlineClientResponse<AdvancedIndexBot>> CryptoIndexBotAddIndex(string botGuid, CryptoIndexBotIndexSaveObject index, bool relocateBalance, bool raiseBalance)
+        public async Task<HaasonlineClientResponse<CryptoIndexBot>> CryptoIndexBotAddIndex(string botGuid, CryptoIndexBotIndexSaveObject index, bool relocateBalance, bool raiseBalance)
         {
-            return await ExecuteAsync<AdvancedIndexBot>("/CryptoIndexBotAddIndex", new Dictionary<string, string>
+            return await ExecuteAsync<CryptoIndexBot>("/CryptoIndexBotAddIndex", new Dictionary<string, string>
             {
                 {"botGuid", botGuid},
                 {"index", JsonConvert.SerializeObject(index)},
@@ -472,9 +472,9 @@ namespace Haasonline.Public.LocalApi.CSharp.Apis
                 {"relocateBalance", relocateBalance.ToString()},
             });
         }
-        public async Task<HaasonlineClientResponse<AdvancedIndexBot>> CryptoIndexBotRemoveIndex(string botGuid, string coin, bool lowerBalance)
+        public async Task<HaasonlineClientResponse<CryptoIndexBot>> CryptoIndexBotRemoveIndex(string botGuid, string coin, bool lowerBalance)
         {
-            return await ExecuteAsync<AdvancedIndexBot>("/CryptoIndexBotRemoveIndex", new Dictionary<string, string>
+            return await ExecuteAsync<CryptoIndexBot>("/CryptoIndexBotRemoveIndex", new Dictionary<string, string>
             {
                 {"botGuid", botGuid},
                 {"coin", coin},
