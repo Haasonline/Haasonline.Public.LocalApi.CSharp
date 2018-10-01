@@ -16,6 +16,7 @@
         ScriptBot = 16,
         CryptoIndexBot = 17,
         HaasScriptBot = 18,
-        EmailBot = 19
+        EmailBot = 19,
+        AdvancedIndexBot = 20
     }
 }

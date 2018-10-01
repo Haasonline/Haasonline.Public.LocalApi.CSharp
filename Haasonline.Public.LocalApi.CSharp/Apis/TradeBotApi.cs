@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
-using Haasonline.LocalApi.CSharp.Enums;
 using Haasonline.Public.LocalApi.CSharp.DataObjects;
 using Haasonline.Public.LocalApi.CSharp.DataObjects.TradeBot;
 using Haasonline.Public.LocalApi.CSharp.Enums;
@@ -240,7 +239,8 @@ namespace Haasonline.Public.LocalApi.CSharp.Apis
                 { "priceChartType", chartType.ToString()},
             });
         }
-        public async Task<HaasonlineClientResponse<TradeBot>> SetupSafety(string botGuid, string elementGuid, EnumPriceSource priceSource, string primaryCoin, string secondaryCoin, string contractName, EnumFundsPosition buySignal, EnumFundsPosition sellSignal)
+        public async Task<HaasonlineClientResponse<TradeBot>> SetupSafety(string botGuid, string elementGuid, EnumPriceSource priceSource, string primaryCoin, string secondaryCoin, string contractName, EnumFundsPosition buySignal,
+            EnumFundsPosition sellSignal, EnumSafetyPositionSignal validPositionSignal)
         {
             return await ExecuteAsync<TradeBot>("/SetupTradeBotSafety", new Dictionary<string, string>
             {
@@ -252,6 +252,7 @@ namespace Haasonline.Public.LocalApi.CSharp.Apis
                 { "contractName", contractName},
                 { "mappedBuySignal", buySignal.ToString()},
                 { "mappedSellSignal", sellSignal.ToString()},
+                { "validPositionSignal", validPositionSignal.ToString()},
             });
         }
 

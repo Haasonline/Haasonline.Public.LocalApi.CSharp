@@ -1,4 +1,5 @@
 ﻿using System;
+using Haasonline.Public.LocalApi.CSharp.DataObjects.MarketData;
 using Haasonline.Public.LocalApi.CSharp.Enums;
 
 namespace Haasonline.Public.LocalApi.CSharp.DataObjects.AccountData

@@ -1,4 +1,5 @@
 ﻿using Haasonline.Public.LocalApi.CSharp.DataObjects.CustomBots.DataObjects;
+using Haasonline.Public.LocalApi.CSharp.Enums;
 
 namespace Haasonline.Public.LocalApi.CSharp.DataObjects.CustomBots
 {
@@ -18,5 +19,8 @@ namespace Haasonline.Public.LocalApi.CSharp.DataObjects.CustomBots
         public Indicator BBands { get; set; }
         public Indicator Rsi { get; set; }
         public bool UseTwoSignals { get; set; }
+
+        public EnumFundsPosition MappedBuySignal { get; set; }
+        public EnumFundsPosition MappedSellSignal { get; set; }
     }
 }

@@ -21,6 +21,7 @@ namespace Haasonline.Public.LocalApi.CSharp.DataObjects.CustomBots
 
         public decimal CurrentTradeAmount { get; set; }
         public decimal CorrectedTradeAmount { get; set; }
+        public EnumBotTradeAmount AmountType { get; set; }
 
         public decimal LastBuyPrice { get; set; }
         public decimal LastSellPrice { get; set; }

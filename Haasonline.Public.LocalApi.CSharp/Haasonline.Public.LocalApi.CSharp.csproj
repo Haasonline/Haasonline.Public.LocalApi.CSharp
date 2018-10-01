@@ -51,6 +51,11 @@
     <Compile Include="DataObjects\AdvancedOrders\AdvancedOrderBase.cs" />
     <Compile Include="DataObjects\AdvancedOrders\StopTakeProfitOrder.cs" />
     <Compile Include="DataObjects\AdvancedOrders\TrailingStop.cs" />
+    <Compile Include="DataObjects\CustomBots\AdvancedIndexBot.cs" />
+    <Compile Include="DataObjects\CustomBots\DataObjects\AdvancedIndexBotIndex.cs" />
+    <Compile Include="Enums\EnumAdvancedIndexBotRebalanceType.cs" />
+    <Compile Include="Enums\EnumBotTradeAmount.cs" />
+    <Compile Include="Enums\EnumSafetyPositionSignal.cs" />
     <Compile Include="Enums\EnumSoftwareLicence.cs" />
     <Compile Include="DataObjects\AccountData\SoftwareInformation.cs" />
     <Compile Include="DataObjects\CustomBots\DataObjects\Insurance.cs" />

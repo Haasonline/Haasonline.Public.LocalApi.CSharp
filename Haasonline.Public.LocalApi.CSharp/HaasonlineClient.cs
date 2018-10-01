@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
-using Haasonline.LocalApi.CSharp.Enums;
 using Haasonline.Public.LocalApi.CSharp.Apis;
+using Haasonline.Public.LocalApi.CSharp.Enums;
 
 namespace Haasonline.Public.LocalApi.CSharp
 {
