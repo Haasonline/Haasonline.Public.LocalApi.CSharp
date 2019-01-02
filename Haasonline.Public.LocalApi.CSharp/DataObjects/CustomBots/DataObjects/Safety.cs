@@ -7,6 +7,7 @@ namespace Haasonline.Public.LocalApi.CSharp.DataObjects.CustomBots.DataObjects
     public class Safety
     {
         public string GUID { get; set; }
+        public bool Enabled { get; set; }
         public EnumSafety SafetyType { get; set; }
 
         public string SafetyName { get; set; }

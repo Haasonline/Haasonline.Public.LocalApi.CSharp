@@ -31,8 +31,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -53,8 +53,10 @@
     <Compile Include="DataObjects\AdvancedOrders\TrailingStop.cs" />
     <Compile Include="DataObjects\CustomBots\AdvancedIndexBot.cs" />
     <Compile Include="DataObjects\CustomBots\DataObjects\AdvancedIndexBotIndex.cs" />
+    <Compile Include="DataObjects\CustomBots\IntelliAliceBot.cs" />
     <Compile Include="Enums\EnumAdvancedIndexBotRebalanceType.cs" />
     <Compile Include="Enums\EnumBotTradeAmount.cs" />
+    <Compile Include="Enums\EnumLeverageStopLossType.cs" />
     <Compile Include="Enums\EnumSafetyPositionSignal.cs" />
     <Compile Include="Enums\EnumSoftwareLicence.cs" />
     <Compile Include="DataObjects\AccountData\SoftwareInformation.cs" />

@@ -51,7 +51,7 @@ namespace Haasonline.Public.LocalApi.CSharp.Apis
         }
         public async Task<HaasonlineClientResponse<bool>> DeactivateBot(string botGuid)
         {
-            return await ExecuteAsync<bool>("/DeactivateBot", new Dictionary<string, string>
+            return await ExecuteAsync<bool>("/DeactivateTradeBot", new Dictionary<string, string>
             {
                 { "botGuid", botGuid }
             });
@@ -224,7 +224,7 @@ namespace Haasonline.Public.LocalApi.CSharp.Apis
             });
         }
 
-        public async Task<HaasonlineClientResponse<TradeBot>> SetupIndicator(string botGuid, string elementGuid, EnumPriceSource priceSource, string primaryCoin, string secondaryCoin, string contractName, int interval, EnumPriceChartType chartType, int delay)
+        public async Task<HaasonlineClientResponse<TradeBot>> SetupIndicator(string botGuid, string elementGuid, EnumPriceSource priceSource, string primaryCoin, string secondaryCoin, string contractName, int interval, EnumPriceChartType chartType, int delay, bool enable)
         {
             return await ExecuteAsync<TradeBot>("/SetupTradeBotIndicator", new Dictionary<string, string>
             {
@@ -237,10 +237,11 @@ namespace Haasonline.Public.LocalApi.CSharp.Apis
                 { "interval", interval.ToString(CultureInfo.InvariantCulture)},
                 { "delay", delay.ToString()},
                 { "priceChartType", chartType.ToString()},
+                { "enable", enable.ToString()},
             });
         }
         public async Task<HaasonlineClientResponse<TradeBot>> SetupSafety(string botGuid, string elementGuid, EnumPriceSource priceSource, string primaryCoin, string secondaryCoin, string contractName, EnumFundsPosition buySignal,
-            EnumFundsPosition sellSignal, EnumSafetyPositionSignal validPositionSignal)
+            EnumFundsPosition sellSignal, EnumSafetyPositionSignal validPositionSignal, bool enable)
         {
             return await ExecuteAsync<TradeBot>("/SetupTradeBotSafety", new Dictionary<string, string>
             {
@@ -253,6 +254,7 @@ namespace Haasonline.Public.LocalApi.CSharp.Apis
                 { "mappedBuySignal", buySignal.ToString()},
                 { "mappedSellSignal", sellSignal.ToString()},
                 { "validPositionSignal", validPositionSignal.ToString()},
+                { "enable", enable.ToString()},
             });
         }
 

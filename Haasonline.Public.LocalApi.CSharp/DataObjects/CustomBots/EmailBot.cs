@@ -1,10 +1,13 @@
 ﻿using System.Collections.Generic;
 using Haasonline.Public.LocalApi.CSharp.DataObjects.CustomBots.DataObjects;
+using Haasonline.Public.LocalApi.CSharp.Enums;
 
 namespace Haasonline.Public.LocalApi.CSharp.DataObjects.CustomBots
 {
     public class EmailBot : BaseCustomBot
     {
+        public EnumLeverageStopLossType StopLossType { get; set; }
+
         public List<EmailBotAction> Actions { get; set; }
         public decimal StopLoss { get; set; }
         public decimal StopLossPrice { get; set; }

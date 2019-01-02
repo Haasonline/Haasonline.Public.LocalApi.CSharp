@@ -4,6 +4,7 @@
     {
         StopLoss,
         PriceChangeToBuy,
-        PriceChangeToSell
+        PriceChangeToSell,
+        StopLossType
     }
 }

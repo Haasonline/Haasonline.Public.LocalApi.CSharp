@@ -2,6 +2,8 @@
 using System.Globalization;
 using System.Threading.Tasks;
 using Haasonline.Public.LocalApi.CSharp.DataObjects;
+using Haasonline.Public.LocalApi.CSharp.DataObjects.AccountData;
+using Haasonline.Public.LocalApi.CSharp.Enums;
 
 namespace Haasonline.Public.LocalApi.CSharp.Apis
 {
@@ -173,5 +175,23 @@ namespace Haasonline.Public.LocalApi.CSharp.Apis
             return await ExecuteAsync<bool>("/CancelTemplate", arg);
         }
 
+        public async Task<HaasonlineClientResponse<List<string>>> GetTemplateAssociatedOrderGuids(string templateGuid)
+        {
+            var arg = new Dictionary<string, string>()
+            {
+                {"templateGuid", templateGuid},
+            };
+
+            return await ExecuteAsync<List<string>>("/GetTemplateAssociatedOrderGuids", arg);
+        }
+        public async Task<HaasonlineClientResponse<List<BaseOrder>>> GetTemplateAssociatedOrders(string templateGuid)
+        {
+            var arg = new Dictionary<string, string>()
+            {
+                {"templateGuid", templateGuid},
+            };
+
+            return await ExecuteAsync<List<BaseOrder>>("/GetTemplateAssociatedOrders", arg);
+        }
     }
 }

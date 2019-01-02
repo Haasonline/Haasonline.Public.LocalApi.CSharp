@@ -26,7 +26,8 @@ namespace Haasonline.Public.LocalApi.CSharp.DataObjects.CustomBots.DataObjects
 
         public bool SafetyEnabled { get; set; }
         public decimal SafetyTriggerLevel { get; set; }
-        public bool SafetyMoveInOut { get; set; }
+        public bool SafetyMoveOutMarket { get; set; }
+        public bool SafetyMoveInMarket { get; set; }
 
         public bool FollowTheTrend { get; set; }
         public int FollowTheTrendChannelRange { get; set; }
