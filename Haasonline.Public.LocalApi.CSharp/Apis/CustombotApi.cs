@@ -204,7 +204,6 @@ namespace Haasonline.Public.LocalApi.CSharp.Apis
                 {"index", JsonConvert.SerializeObject(indexes)},
             });
         }
-                                                                        // _newBotGuid, "RenamedLocalApi", SimulatedSpotAccountGuid, primairyCoin, secondairyCoin, contractName, leverage, EnumBotTradeAmount.MaxTradeAmount,                       tradeAmount, fee, position, actions, EnumLeverageStopLossType.PriceBased, stopLoss, minChangeToBuy, minChangeToSell);
         public async Task<HaasonlineClientResponse<EmailBot>> SetupEmailBot(string botGuid, string botName, string accountGuid, string primaryCoin, string secondaryCoin, string contractName, decimal leverage, EnumBotTradeAmount amountType, decimal tradeAmount, decimal fee, string position, List<EmailBotAction> actions, EnumLeverageStopLossType stopLossType, decimal stopLoss, decimal minChangeToBuy, decimal minChangeToSell)
         {
             return await ExecuteAsync<EmailBot>("/SetupEmailBot", new Dictionary<string, string>()
