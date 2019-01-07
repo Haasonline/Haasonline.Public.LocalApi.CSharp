@@ -6,6 +6,7 @@ namespace Haasonline.Public.LocalApi.CSharp.DataObjects.CustomBots.DataObjects
     public class Insurance
     {
         public string GUID { get; set; }
+        public bool Enabled { get; set; }
         public EnumInsurances InsuranceType { get; set; }
 
         public string InsuranceTypeShortName { get; set; }

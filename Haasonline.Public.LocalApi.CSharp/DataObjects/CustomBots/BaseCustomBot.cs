@@ -1,7 +1,7 @@
-﻿using System.Collections.Generic;
-using Haasonline.Public.LocalApi.CSharp.DataObjects.AccountData;
-using Haasonline.Public.LocalApi.CSharp.DataObjects.MarketData;
+﻿using Haasonline.Public.LocalApi.CSharp.DataObjects.MarketData;
 using Haasonline.Public.LocalApi.CSharp.Enums;
+using System.Collections.Generic;
+using Haasonline.Public.LocalApi.CSharp.DataObjects.AccountData;
 
 namespace Haasonline.Public.LocalApi.CSharp.DataObjects.CustomBots
 {

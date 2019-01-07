@@ -7,6 +7,7 @@ namespace Haasonline.Public.LocalApi.CSharp.DataObjects.CustomBots.DataObjects
     public class Indicator
     {
         public string GUID { get; set; }
+        public bool Enabled { get; set; }
         public EnumIndicator IndicatorType { get; set; }
 
         public string IndicatorName { get; set; }

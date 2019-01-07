@@ -7,6 +7,7 @@ namespace Haasonline.Public.LocalApi.CSharp.DataObjects.CustomBots
     {
         public int Interval { get; set; }
 
+        public EnumLeverageStopLossType StopLossType { get; set; }
         public decimal StopLoss { get; set; }
         public decimal StopLossPrice { get; set; }
         public bool DisableAfterStopLoss { get; set; }

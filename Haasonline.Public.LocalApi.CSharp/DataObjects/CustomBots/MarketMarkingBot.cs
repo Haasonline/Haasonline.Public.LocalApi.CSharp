@@ -1,22 +1,17 @@
-﻿using Haasonline.Public.LocalApi.CSharp.DataObjects.CustomBots.DataObjects;
+﻿using System.Collections.Generic;
+using Haasonline.Public.LocalApi.CSharp.DataObjects.CustomBots.DataObjects;
 using Haasonline.Public.LocalApi.CSharp.DataObjects.MarketData;
+using Haasonline.Public.LocalApi.CSharp.Enums;
 
 namespace Haasonline.Public.LocalApi.CSharp.DataObjects.CustomBots
 {
     public class MarketMarkingBot : BaseCustomBot
     {
-        public decimal TradeAmount { get; set; }
-        public decimal CustomFee { get; set; }
-
-        public MarketMarkingBotSlot FirstOrder { get; set; }
-        public MarketMarkingBotSlot SecondOrder { get; set; }
-
-        public decimal FirstOffset { get; set; }
-        public decimal SecondOffset { get; set; }
-
-        public bool UseSecondOrder { get; set; }
-        public int ResetTimeout { get; set; }
-
         public PriceTick LastTick { get; set; }
+        public List<MarketMakingBotSlot> Slots { get; set; } = new List<MarketMakingBotSlot>();
+        public string StopLossTemplate { get; set; }
+        public string Template { get; set; }
+        public EnumFundsPosition LeverageStartSide { get; set; }
+
     }
 }

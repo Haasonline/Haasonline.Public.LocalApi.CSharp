@@ -1,10 +1,37 @@
-﻿namespace Haasonline.Public.LocalApi.CSharp.DataObjects.CustomBots.DataObjects
+﻿using System;
+using System.Collections.Generic;
+
+namespace Haasonline.Public.LocalApi.CSharp.DataObjects.CustomBots.DataObjects
 {
-    public class MarketMarkingBotSlot
+    public class MarketMakingBotSlot
     {
-        public MarketMarkingBotSlotObject BuyOrder { get; set; }
-        public MarketMarkingBotSlotObject SellOrder { get; set; }
-        public decimal Offset { get; set; } = 0.0M;
-        public bool Active { get; set; } = false;
+        public string SlotGuid { get; set; } = Guid.NewGuid().ToString(); // UI!
+        public MarketMakingBotSlotOrder BuyOrder { get; set; } = new MarketMakingBotSlotOrder();
+        public MarketMakingBotSlotOrder SellOrder { get; set; } = new MarketMakingBotSlotOrder();
+        public decimal Offset { get; set; }
+        public decimal Amount { get; set; }
+        public decimal StopLoss { get; set; }
+        public bool StopLossHit { get; set; }
+
+        public int Timeout { get; set; }
+        public string ExecutionGuid { get; set; }
+        public List<int> ExecutionTimes { get; set; } = new List<int>();
+    }
+
+    public class MarketMakingBotSlotOrder
+    {
+        private string _orderGuid = "";
+
+        public string OrderGuid { get; set; }
+        public List<string> OrderIds { get; set; } = new List<string>();
+
+        public int ExecutionResetCounter { get; set; } = 0;
+        public long ExecutionUnixTimestamp { get; set; }
+
+
+        public decimal Price { get; set; } = 0M;
+        public decimal TempAmount { get; set; } = 0M;
+        public bool IsFinished { get; set; } = true;
+        public bool WaitingForExecution { get; set; }
     }
 }
