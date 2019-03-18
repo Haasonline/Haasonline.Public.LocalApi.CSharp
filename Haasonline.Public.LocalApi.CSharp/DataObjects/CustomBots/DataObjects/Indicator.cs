@@ -20,6 +20,7 @@ namespace Haasonline.Public.LocalApi.CSharp.DataObjects.CustomBots.DataObjects
         public EnumPriceChartType ChartType { get; set; }
         public int Timer { get; set; }
         public int Deviation { get; set; }
+        public int Weight { get; set; }
 
 
         public bool UseBuySignals { get; set; }
@@ -29,7 +30,6 @@ namespace Haasonline.Public.LocalApi.CSharp.DataObjects.CustomBots.DataObjects
         public bool UseShortSignals { get; set; }
 
         public virtual bool ReverseSignals { get; set; }
-        public bool StandAlone { get; set; }
 
         public EnumBotTradeResult BuySellResult { get; set; }
         public EnumFundsPosition ShortLongResult { get; set; }
