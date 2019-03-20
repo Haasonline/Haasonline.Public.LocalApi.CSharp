@@ -320,7 +320,8 @@ namespace Haasonline.Public.LocalApi.CSharp.Apis
                 {"slots", JsonConvert.SerializeObject(slots)}
             });
         }
-        public async Task<HaasonlineClientResponse<MadHatterBot>> SetupMadHatterBot(string botGuid, string botName, string accountGuid, string primaryCoin, string secondaryCoin, EnumBotTradeAmount amountType, decimal tradeAmount, decimal fee, string templateGuid, string position, int interval, bool consensusmode, bool disableAfterStopLoss, bool includeIncompleteInterval, EnumFundsPosition mappedBuySignal, EnumFundsPosition mappedSellSignal)
+        public async Task<HaasonlineClientResponse<MadHatterBot>> SetupMadHatterBot(string botGuid, string botName, string accountGuid, string primaryCoin, string secondaryCoin, string contractName, decimal leverage, EnumBotTradeAmount amountType, 
+            decimal tradeAmount, decimal fee, string templateGuid, string position, int interval, bool consensusmode, bool disableAfterStopLoss, bool includeIncompleteInterval, EnumFundsPosition mappedBuySignal, EnumFundsPosition mappedSellSignal)
         {
             return await ExecuteAsync<MadHatterBot>("/SetupMadHatterBot", new Dictionary<string, string>()
             {
@@ -329,6 +330,8 @@ namespace Haasonline.Public.LocalApi.CSharp.Apis
                 {"accountGuid", accountGuid},
                 {"primaryCoin", primaryCoin},
                 {"secondaryCoin", secondaryCoin},
+                {"contractName", contractName},
+                {"leverage", leverage.ToString(CultureInfo.InvariantCulture)},
                 {"templateGuid", templateGuid},
                 {"position", position},
                 {"fee", fee.ToString(CultureInfo.InvariantCulture)},
@@ -486,18 +489,6 @@ namespace Haasonline.Public.LocalApi.CSharp.Apis
                 {"coin", coin},
                 {"lowerBalance", lowerBalance.ToString()},
             });
-        }
-
-        public async Task<HaasonlineClientResponse<bool>> FlashCrashBotQuickStart(string botGuid)
-        {
-            return await ExecuteAsync<bool>("/QuickStartFlashCrashBot", new Dictionary<string, string>
-            {
-                {"botGuid", botGuid}
-            });
-        }
-        public async Task<HaasonlineClientResponse<bool>> FlashCrashBotQuickStartAll()
-        {
-            return await ExecuteAsync<bool>("/QuickStartAllFlashCrashBots");
         }
 
         public async Task<HaasonlineClientResponse<FlashCrashBot>> FlashCrashBotAddBuyOrder(string botGuid)

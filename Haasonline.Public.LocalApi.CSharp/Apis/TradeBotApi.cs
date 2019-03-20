@@ -115,20 +115,25 @@ namespace Haasonline.Public.LocalApi.CSharp.Apis
             });
         }
 
-        public async Task<HaasonlineClientResponse<TradeBot>> SetupBot(string botGuid, string botName, string accountId, string primaryCoin, string secondaryCoin, string contractName, decimal leverage, bool useConsensus, bool copyMarketToElements = true, string groupId = "")
+        public async Task<HaasonlineClientResponse<TradeBot>> SetupBot(string botGuid, string botName, string accountId, string primaryCoin, string secondaryCoin, string contractName, decimal leverage, bool useConsensus, int buyWeight, int sellWeight, int longWeight, int shortWeight, int exitWeight, bool copyMarketToElements = true, string groupId = "")
         {
             return await ExecuteAsync<TradeBot>("/SetupTradeBot", new Dictionary<string, string>
             {
                 { "botGuid", botGuid },
                 { "botName", botName },
-                {"accountGuid", accountId},
-                {"primaryCoin", primaryCoin},
-                {"secondaryCoin", secondaryCoin},
-                {"contractName", contractName},
-                {"leverage", leverage.ToString(CultureInfo.InvariantCulture)},
-                {"groupId", groupId},
-                {"useConsensus", useConsensus.ToString()},
-                {"copyMarketToElements", copyMarketToElements.ToString()},
+                { "accountGuid", accountId},
+                { "primaryCoin", primaryCoin},
+                { "secondaryCoin", secondaryCoin},
+                { "contractName", contractName},
+                { "leverage", leverage.ToString(CultureInfo.InvariantCulture)},
+                { "groupId", groupId},
+                { "useConsensus", useConsensus.ToString()},
+                { "buyWeight", buyWeight.ToString(CultureInfo.InvariantCulture)},
+                { "sellWeight", sellWeight.ToString(CultureInfo.InvariantCulture)},
+                { "longWeight", longWeight.ToString(CultureInfo.InvariantCulture)},
+                { "shortWeight", shortWeight.ToString(CultureInfo.InvariantCulture)},
+                { "exitWeight", exitWeight.ToString(CultureInfo.InvariantCulture)},
+                { "copyMarketToElements", copyMarketToElements.ToString()},
             });
         }
         public async Task<HaasonlineClientResponse<TradeBot>> SetupSpotBotTradeAmount(string botGuid, EnumCoinsPosition coinPosition, decimal tradeAmount, decimal lastBuyPrice, decimal lastSellPrice, string buyTemplateId, string sellTemplateId, bool highSpeedEnabled, bool allIn, int orderTimeout, int templateTimeout, bool maxTradeAmount, EnumLimitOrderPriceType limitOrderType, bool useHiddenOrders, decimal fee)
@@ -224,7 +229,7 @@ namespace Haasonline.Public.LocalApi.CSharp.Apis
             });
         }
 
-        public async Task<HaasonlineClientResponse<TradeBot>> SetupIndicator(string botGuid, string elementGuid, EnumPriceSource priceSource, string primaryCoin, string secondaryCoin, string contractName, int interval, EnumPriceChartType chartType, int delay, bool enable)
+        public async Task<HaasonlineClientResponse<TradeBot>> SetupIndicator(string botGuid, string elementGuid, EnumPriceSource priceSource, string primaryCoin, string secondaryCoin, string contractName, int interval, EnumPriceChartType chartType, int delay, int weight, bool enable)
         {
             return await ExecuteAsync<TradeBot>("/SetupTradeBotIndicator", new Dictionary<string, string>
             {
@@ -236,6 +241,7 @@ namespace Haasonline.Public.LocalApi.CSharp.Apis
                 { "contractName", contractName},
                 { "interval", interval.ToString(CultureInfo.InvariantCulture)},
                 { "delay", delay.ToString()},
+                { "weight", weight.ToString()},
                 { "priceChartType", chartType.ToString()},
                 { "enable", enable.ToString()},
             });
@@ -258,7 +264,7 @@ namespace Haasonline.Public.LocalApi.CSharp.Apis
             });
         }
 
-        public async Task<HaasonlineClientResponse<TradeBot>> SetupIndicatorSpotSignals(string botGuid, string elementGuid, bool useBuySignal, bool useSellSignal, bool reverseSignals, bool standAlone)
+        public async Task<HaasonlineClientResponse<TradeBot>> SetupIndicatorSpotSignals(string botGuid, string elementGuid, bool useBuySignal, bool useSellSignal, bool reverseSignals)
         {
             return await ExecuteAsync<TradeBot>("/SetupTradeBotIndicatorSpotSignals", new Dictionary<string, string>
             {
@@ -267,10 +273,9 @@ namespace Haasonline.Public.LocalApi.CSharp.Apis
                 { "useBuySignal", useBuySignal.ToString()},
                 { "useSellSignal", useSellSignal.ToString()},
                 { "reverseSignals", reverseSignals.ToString()},
-                { "standAlone", standAlone.ToString()},
             });
         }
-        public async Task<HaasonlineClientResponse<TradeBot>> SetupIndicatorLeverageSignals(string botGuid, string elementGuid, bool useLongSignals, bool useNoPositionSignals, bool useShortSignals, bool reverseSignals, bool standAlone, EnumFundsPosition mappedLong, EnumFundsPosition mappedShort)
+        public async Task<HaasonlineClientResponse<TradeBot>> SetupIndicatorLeverageSignals(string botGuid, string elementGuid, bool useLongSignals, bool useNoPositionSignals, bool useShortSignals, bool reverseSignals, EnumFundsPosition mappedLong, EnumFundsPosition mappedShort)
         {
             return await ExecuteAsync<TradeBot>("/SetupTradeBotIndicatorLeverageSignals", new Dictionary<string, string>
             {
@@ -280,7 +285,6 @@ namespace Haasonline.Public.LocalApi.CSharp.Apis
                 { "useNoPositionSignals", useNoPositionSignals.ToString()},
                 { "useShortSignals", useShortSignals.ToString()},
                 { "reverseSignals", reverseSignals.ToString()},
-                { "standAlone", standAlone.ToString()},
                 { "mappedLongSignal", mappedLong.ToString()},
                 { "mappedShortSignal", mappedShort.ToString()},
             });

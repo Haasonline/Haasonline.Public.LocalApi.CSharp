@@ -45,6 +45,12 @@ namespace Haasonline.Public.LocalApi.CSharp.DataObjects.TradeBot
         public decimal ContractValue { get; set; }
         public string GroupName { get; set; }
 
+        public int BuyWeight { get; set; }
+        public int SellWeight { get; set; }
+        public int LongWeight { get; set; }
+        public int ShortWeight { get; set; }
+        public int ExitWeight { get; set; }
+
         public TradeBotSignals BotSignals { get; set; } 
 
         public List<string> BotLogBook { get; set; }

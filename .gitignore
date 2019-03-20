@@ -23,7 +23,7 @@ ipch/
 .vs/
 packages/
 obj/
-[Bb]in
+*/[Bb]in
 [Oo]bj
 [Dd]ebug*/
 [Rr]elease*/
